@@ -26,25 +26,35 @@ public class GraphDFSFragment extends Fragment {
     EditText input;
     static TextView output;
     String inp;
-    static String selectedInput, selectedOutput;
-    int[] inparr;
-    String[] inpstrarr;
+    static String selectedInput;
     static Graph g;
-
+    static boolean mode; //If true, Graph is Undirected and if false its a directed Graph
     public static void createGraph(int v){
         g=null;
         g = new Graph(v);
     }
-
-    public static boolean addNode(int v, int w, Context context){
-        if(g.addEdge(v,w)==false) {
-            Toast.makeText(context, "Enter valid nodes", Toast.LENGTH_LONG).show();
-            return false;
-        }
-        else
-            return true;
+    public static void setMode(boolean b){
+        mode=b;
     }
-
+    public static boolean addNode(int v, int w, Context context){
+        if(mode==true) {
+            if (g.addEdge(v, w) == false && g.addEdge(w,v)==false) {
+                Toast.makeText(context, "Enter valid nodes", Toast.LENGTH_LONG).show();
+                return false;
+            } else
+                return true;
+        }
+        else{
+            if (g.addEdge(v, w) == false) {
+                Toast.makeText(context, "Enter valid nodes", Toast.LENGTH_LONG).show();
+                return false;
+            } else
+                return true;
+        }
+    }
+    public static void setSelectedInput(String s){
+        selectedInput=s;
+    }
 
     public static boolean showTraversal(int i,Context context) {
         if(i>=g.V || i<0) {
@@ -66,26 +76,14 @@ public class GraphDFSFragment extends Fragment {
         View v = inflater.inflate(R.layout.graph_dfs_fragment,container,false);
         ((MainActivity)getActivity()).setActionBarTitle("Graph DFS & BFS");
         ((MainActivity)getActivity()).setNavItem(R.id.navds);
-        spinner1 = (Spinner) v.findViewById(R.id.spinner1GRDFS);
-        adapter1 = ArrayAdapter.createFromResource(getActivity(), R.array.output_mode_graph_names, android.R.layout.simple_spinner_item);
-        adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner1.setAdapter(adapter1);
+
         final RelativeLayout mainLayout;
         mainLayout = (RelativeLayout)v.findViewById(R.id.mainLayoutGRDFS);
 
         output = (TextView) v.findViewById(R.id.textView3GRDFS);
 
-        spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                selectedInput = adapterView.getItemAtPosition(i).toString();
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
 
-            }
-        });
-        getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).add(R.id.fragContainerGraphInput, new GraphDFSInputOneFragment(), "INPUTONE").commit();
+        getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).add(R.id.fragContainerGraphInput, new GraphDFSInputZeroFragment(), "INPUTZERO").commit();
        // Fragment inputOne = getActivity().getSupportFragmentManager().findFragmentByTag("INPUTONE");
         /*go.setOnClickListener(new View.OnClickListener() {
 

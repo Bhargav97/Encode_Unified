@@ -7,72 +7,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView1GRDFS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="17dp"
-        android:layout_marginLeft="17dp"
-        android:layout_marginBottom="17dp"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        android:text="Select the output traversal mode" />
-    <LinearLayout
-        android:layout_below="@id/textView1GRDFS"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/lightgray"></LinearLayout>
-    <LinearLayout
-        android:id="@+id/inputLabelLLGRDFS"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/textView1GRDFS"
-        android:layout_marginTop="10dp"
-        android:orientation="horizontal"
-        android:layout_centerHorizontal="true">
-        <TextView
-            android:id="@+id/textView2GRDFS"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Output Mode"
-            android:layout_weight="1"
-            android:textColor="@color/colorPrimaryDark"
-            android:spinnerMode="dialog" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/inputLLGRDFS"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/inputLabelLLGRDFS"
-        android:layout_margin="5dp"
-        android:orientation="horizontal"
-        android:layout_centerHorizontal="true">
-        <Spinner
-            android:gravity="center"
-            android:layout_gravity="center"
-            android:id="@+id/spinner1GRDFS"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_below="@id/inputLLGRDFS"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:background="@color/lightgray"></LinearLayout>
     <FrameLayout
-        android:layout_below="@id/inputLLGRDFS"
         android:id="@+id/fragContainerGraphInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
-
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/fragContainerGraphInput"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lightgray"></LinearLayout>
 
     <TextView
         android:id="@+id/textView3GRDFS"

@@ -14,7 +14,14 @@
         android:textColor="@color/green"
         android:gravity="center"
         android:textSize="10sp"/>
+
     <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lightgray"></LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal">
@@ -23,7 +30,39 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
-            android:text="Start Traversal from which Node?" />
+            android:text="Select the Traversal Mode - "
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
+
+        <Spinner
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:id="@+id/spinner1GRDFS"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lightgray"></LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="2dp"
+            android:text="Start Traversal from which Node?"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp"
+            android:textStyle="bold"/>
 
         <EditText
             android:id="@+id/inputGRDFS4"
@@ -33,9 +72,13 @@
             android:layout_marginLeft="15dp"
             android:gravity="center"
             android:hint="vertice"
-            android:inputType="numberPassword"/>
+            android:inputType="number"/>
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lightgray"></LinearLayout>
     <LinearLayout
         android:layout_marginTop="5dp"
         android:layout_width="wrap_content"

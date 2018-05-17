@@ -4,13 +4,16 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:id="@+id/mainLayoutGRDFST">
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lightgray"></LinearLayout>
     <TextView
         android:id="@+id/statusText"
         android:layout_marginTop="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Number of vertices submitted!"
+        android:text="Got the number of vertices!"
         android:textColor="@color/green"
         android:gravity="center"
         android:textSize="10sp"/>
@@ -23,6 +26,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="2dp"
+            android:layout_marginBottom="17dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15sp"
+            android:textStyle="bold"
             android:text="Add an edge (like 2->3) -" />
 
         <EditText
@@ -33,7 +40,7 @@
             android:layout_marginLeft="10dp"
             android:gravity="center"
             android:hint="V(origin)"
-            android:inputType="numberPassword"/>
+            android:inputType="number"/>
         <EditText
             android:id="@+id/inputGRDFS3"
             android:layout_width="0dp"
@@ -42,7 +49,7 @@
             android:layout_marginLeft="25dp"
             android:gravity="center"
             android:hint="W(dest)"
-            android:inputType="numberPassword"/>
+            android:inputType="number"/>
 
     </LinearLayout>
     <LinearLayout

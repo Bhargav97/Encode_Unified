@@ -22,11 +22,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DSFragment extends Fragment {
-    static String options[] = {"Binary Tree", "n-ary Tree", "Directed Graph", "Undirected Graph", "DAG"};
+    static String options[] = {"Binary Tree", "Directed/Undirected Graph", "DAG"};
     RecyclerView recyclerView;
     RVAdapter rvAdapter;
 
-    //Hide the main activity Toolbar to set our collapsableToolbar
+    //Hide the main activity Toolbar to set our collapsingToolbar
     @Override
     public void onResume() {
         super.onResume();
@@ -60,7 +60,7 @@ public class DSFragment extends Fragment {
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
-        toolbar.setBackgroundColor(330000);
+        //toolbar.setBackgroundColor(0x330000);
        /* mActionBar.setDisplayShowTitleEnabled(false);
         mActionBar.setDisplayShowTitleEnabled(true);*/
         recyclerView = (RecyclerView) v.findViewById(R.id.ds_rlv);
@@ -81,11 +81,8 @@ public class DSFragment extends Fragment {
                 if(selectedItem.equals("Binary Tree")){
                     getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new BinaryTreeFragment()).addToBackStack(null).commit();
                 }
-                else if(selectedItem.equals("n-ary Tree")){
-                    //todo
-                }
-                else if(selectedItem.equals("Directed Graph")){
-                    getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new GraphFragment()).addToBackStack(null).commit();
+                else if(selectedItem.equals("Directed/Undirected Graph")){
+                    getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new GraphFragment(),"GRAPH").addToBackStack(null).commit();
                 }
                 else if(selectedItem.equals("Undirected Graph")){
                     //todo
@@ -97,34 +94,6 @@ public class DSFragment extends Fragment {
         } ;
         rvAdapter = new RVAdapter(getActivity(),getData(),listener);
         recyclerView.setAdapter(rvAdapter);
-        /*ListView listView = (ListView) v.findViewById(R.id.ds_lv);
-        ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity(), android.R.layout.simple_expandable_list_item_1,options);
-        listView.setAdapter(arrayAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> parent,View v, int position, long id){
-                String selectedItem = (String) parent.getItemAtPosition(position);
-
-                if(selectedItem.equals("Binary Tree")){
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new BinaryTreeFragment()).addToBackStack(null).commit();
-                }
-                else if(selectedItem.equals("n-ary Tree")){
-                    //todo
-                }
-                else if(selectedItem.equals("Directed Graph")){
-                    //todo
-                }
-                else if(selectedItem.equals("Undirected Graph")){
-                    //todo
-                }
-                else {
-                    //todo
-                }
-                /*Intent intent = new Intent(Activity.this,destinationActivity.class);
-                //based on item add info to intent
-                startActivity(intent);
-            }
-        });*/
         return v;
     }
 

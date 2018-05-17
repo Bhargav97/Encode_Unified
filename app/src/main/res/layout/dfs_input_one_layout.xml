@@ -8,21 +8,31 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_gravity="center"
+        android:orientation="vertical">
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="17dp"
+            android:layout_marginLeft="17dp"
+            android:layout_marginBottom="17dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="17sp"
+            android:textStyle="bold"
             android:padding="2dp"
             android:text="Enter Number of vertices -" />
 
         <EditText
             android:id="@+id/inputGRDFS1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="25dp"
+            android:layout_weight="1"
+            android:layout_height="0dp"
+            android:layout_marginLeft="120dp"
+            android:layout_marginRight="120dp"
             android:gravity="center"
-            android:inputType="numberPassword"
+            android:inputType="number"
             android:hint="" />
 
     </LinearLayout>
@@ -31,10 +41,8 @@
         android:id="@+id/buttonGRDFS1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/fragContainerGraphInput"
-        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="10dp"
         android:elevation="@dimen/cardview_default_elevation"
         android:text="Submit" />
 </LinearLayout>

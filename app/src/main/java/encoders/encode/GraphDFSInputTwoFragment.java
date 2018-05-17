@@ -42,8 +42,12 @@ public class GraphDFSInputTwoFragment extends Fragment {
                     Toast.makeText(getActivity(),"Enter both the values",Toast.LENGTH_LONG).show();
                     return;
                 }
-                if((GraphDFSFragment.addNode(i,j,getActivity()))==true)
-                    status.setText("Edge " + i + " -> " + j + " added!");
+                if((GraphDFSFragment.addNode(i,j,getActivity()))==true) {
+                    if(GraphDFSFragment.mode==true)
+                        status.setText("Edge " + i + " -- " + j + " added!");
+                    else
+                        status.setText("Edge " + i + " -> " + j + " added!");
+                }
                 else
                     status.setText("Invalid nodes submitted");
                 input1.setText("");
