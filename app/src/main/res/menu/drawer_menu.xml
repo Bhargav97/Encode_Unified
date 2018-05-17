@@ -19,18 +19,22 @@
             android:id="@+id/navalgo"
             android:icon="@drawable/ic_algo"
             android:title="Algorithms" />
+        <item
+            android:id="@+id/navcon"
+            android:icon="@drawable/ic_conv"
+            android:title="Conversion" />
     </group>
 
     <item android:title="Other Actions">
         <menu>
             <item
-                android:id="@+id/navshare"
+                android:id="@+id/navfeedback"
                 android:icon="@drawable/ic_share"
-                android:title="Share" />
+                android:title="Feedback" />
             <item
                 android:id="@+id/navsettings"
                 android:icon="@drawable/ic_settings"
-                android:title="Settings" />
+                android:title="Settings"/>
         </menu>
     </item>
 </menu>

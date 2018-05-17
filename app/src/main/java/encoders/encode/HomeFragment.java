@@ -76,7 +76,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         refCard = (CardView) v.findViewById(R.id.refcardId);
         dsCard = (CardView) v.findViewById(R.id.dscardId);
         algoCard = (CardView) v.findViewById(R.id.algocardId);
-        fbCard = (CardView) v.findViewById(R.id.fbcardId);
+        fbCard = (CardView) v.findViewById(R.id.concardId);
         refCard.setOnClickListener(this);
         dsCard.setOnClickListener(this);
         algoCard.setOnClickListener(this);
@@ -97,9 +97,8 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
             case R.id.algocardId:
                 getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new AlgoFragment()).addToBackStack(null).commit();
                 break;
-            case R.id.fbcardId:
-                Toast.makeText(getActivity(), "What's the hurry dude!!",
-                        Toast.LENGTH_LONG).show();
+            case R.id.concardId:
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ConversionFragment()).addToBackStack(null).commit();
                 break;
         }
 

@@ -15,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout drawer;
@@ -72,6 +73,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.navalgo:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new AlgoFragment()).addToBackStack(null).commit();
                 break;
+            case R.id.navcon:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ConversionFragment()).addToBackStack(null).commit();
+                break;
+            case R.id.navfeedback:
+                Toast.makeText(this, "What's the hurry dude!!",
+                        Toast.LENGTH_LONG).show();
+                break;
+            case R.id.navsettings:
+                Toast.makeText(this, "Really dude?",
+                        Toast.LENGTH_LONG).show();
+                break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
@@ -92,7 +104,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             getFragmentManager().popBackStack();
         }*/
-
         HomeFragment myFragment = (HomeFragment)getSupportFragmentManager().findFragmentByTag("HOME_FRAGMENT");
         if (myFragment != null && myFragment.isVisible()) {
             // add your code here

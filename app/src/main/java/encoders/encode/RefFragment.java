@@ -26,7 +26,7 @@ import java.util.List;
 
 public class RefFragment extends Fragment {
 
-    static String options[] = {"ASCII", "Unicode", "Number System"};
+    static String options[] = {"Binary Tree", "Quick Sort"};
     RecyclerView recyclerView;
     RVAdapter rvAdapter;
 
@@ -80,10 +80,10 @@ public class RefFragment extends Fragment {
             @Override
             public void onClick(View view, int position) {
                 String selectedItem = (String) rvAdapter.data.get(position).title;
-                if(selectedItem.equals("ASCII")){
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new AsciiFragment()).addToBackStack(null).commit();
+                if(selectedItem.equals("Binary Tree")){
+                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new BTtut()).addToBackStack(null).commit();
                 }
-                else if(selectedItem.equals("Unicode")){
+                else if(selectedItem.equals("Quick Sort")){
                     getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new UnicodeFragment()).addToBackStack(null).commit();
                 }
                 else {

@@ -206,7 +206,7 @@
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-                    android:id="@+id/fbcardId"
+                    android:id="@+id/concardId"
                     android:layout_width="160dp"
                     android:layout_height="190dp"
                     android:layout_margin="10dp"
@@ -224,13 +224,13 @@
                             android:layout_height="64dp"
                             android:background="@drawable/circlebgyello"
                             android:padding="10dp"
-                            android:src="@drawable/ic_feedback_white" />
+                            android:src="@drawable/ic_conv_white" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
-                            android:text="Feedback"
+                            android:text="Conversion"
                             android:textStyle="bold" />
 
                         <View
@@ -244,7 +244,7 @@
                             android:layout_height="wrap_content"
                             android:gravity="center"
                             android:padding="5dp"
-                            android:text="Provide us feedback here"
+                            android:text="ASCII, Unicode and Number System conversions"
                             android:textColor="@android:color/darker_gray" />
 
                     </LinearLayout>

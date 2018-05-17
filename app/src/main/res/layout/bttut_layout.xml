@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/btll"
+    android:orientation="vertical"
+    android:padding="10dp">
+    <TextView
+        android:id="@+id/titleText1bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TutHeadingText"/>
+    <TextView
+        android:id="@+id/titleText2bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TutHeading2Text"/>
+    <TextView
+        android:id="@+id/descText1bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TutDescText"/>
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+        <TextView
+            android:id="@+id/codeText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/CodeView"/>
+    </HorizontalScrollView>
+    </ScrollView>
+    <TextView
+        android:id="@+id/titleText3bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TutHeadingText"/>
+    <TextView
+        android:id="@+id/titleText4bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TutHeading2Text"/>
+    <TextView
+        android:id="@+id/descText2bt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/TutDescText"/>
+</LinearLayout>
+</ScrollView>
