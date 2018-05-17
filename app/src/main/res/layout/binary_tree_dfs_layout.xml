@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayoutBTDFS"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView1BTDFS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="17dp"
+        android:layout_marginLeft="17dp"
+        android:layout_marginBottom="17dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:text="Select the input and output traversal mode" />
+    <LinearLayout
+        android:layout_below="@id/textView1BTDFS"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lightgray"></LinearLayout>
+    <LinearLayout
+        android:id="@+id/inputLabelLLBTDFS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView1BTDFS"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true">
+        <TextView
+            android:id="@+id/textView2BTDFS"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="Input Mode"
+            android:layout_weight="1"
+            android:textColor="@color/colorPrimaryDark"
+            android:spinnerMode="dialog" />
+        <TextView
+            android:id="@+id/textView3BTDFS"
+            android:layout_width="0dp"
+            android:gravity="center"
+            android:text="Output Mode"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:textColor="@color/colorPrimaryDark"
+            android:shadowColor="@color/lightgray"
+            android:spinnerMode="dialog" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/inputLLBTDFS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputLabelLLBTDFS"
+        android:layout_margin="5dp"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true">
+        <Spinner
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:id="@+id/spinner1BTDFS"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" />
+        <Spinner
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:id="@+id/spinner2BTDFS"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_below="@id/inputLLBTDFS"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/lightgray"></LinearLayout>
+    <EditText
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_below="@id/inputLLBTDFS"
+        android:id="@+id/inputBTDFS"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter the array, seperated by comma"
+        android:inputType="text" />
+
+
+    <Button
+        android:id="@+id/buttonBTDFS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/inputBTDFS"
+        android:layout_centerHorizontal="true"
+        android:text="Generate chosen DFT"
+        android:elevation="@dimen/cardview_default_elevation"/>
+
+    <TextView
+        android:id="@+id/textView4BTDFS"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/buttonBTDFS"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="Your chosen mode of Depth-First Traversal will appear here"/>
+
+</RelativeLayout>

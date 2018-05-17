@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/mainLayoutUC"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewUC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="56dp"
+        android:text="Enter Character"
+        android:textSize="20sp"/>
+
+    <EditText
+        android:id="@+id/editTextUC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewUC"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="28dp"
+        android:ems="10"
+        android:hint="Character (a,*)"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/buttonUC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextUC"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="43dp"
+        android:text="Covert" />
+
+    <EditText
+        android:id="@+id/editText2UC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@+id/editTextUC"
+        android:layout_below="@+id/buttonUC"
+        android:layout_marginTop="54dp"
+        android:ems="10"
+        android:hint="Output(23,45,56)"
+        android:inputType="textPersonName" />
+</RelativeLayout>

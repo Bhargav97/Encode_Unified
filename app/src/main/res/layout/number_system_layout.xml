@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayoutNS"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textView5NS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="17dp"
+        android:textColor="@color/deeppurple"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:text="Select a Number System"
+         />
+
+    <LinearLayout
+        android:id="@+id/inputLLNS"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textView5NS"
+        android:layout_margin="20dp"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true">
+        <Spinner
+            android:id="@+id/spinnerNS"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:spinnerMode="dialog" />
+        <EditText
+            android:id="@+id/inputNS"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:hint="Bin/Dec/Hex"
+            android:inputType="textPersonName" />
+    </LinearLayout>
+
+
+
+
+    <Button
+        android:id="@+id/buttonNS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/inputLLNS"
+        android:layout_centerHorizontal="true"
+        android:text="GO" />
+
+    <TextView
+        android:id="@+id/binaryNS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/buttonNS"
+        android:layout_below="@id/buttonNS"
+        android:layout_marginTop="43dp"
+        android:ems="10"
+        android:hint="eg 1101"
+        android:inputType="textPersonName"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView2NS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/binaryNS"
+        android:layout_alignBottom="@id/binaryNS"
+        android:layout_marginEnd="16dp"
+        android:layout_toStartOf="@id/binaryNS"
+        android:text="Binary"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/textView3NS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/textView2NS"
+        android:layout_below="@id/textView2NS"
+        android:layout_marginTop="53dp"
+        android:text="Decimal"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/decimalNS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/textView4NS"
+        android:layout_alignStart="@id/hexadecimalNS"
+        android:ems="10"
+        android:hint="eg 10,15"
+        android:inputType="textPersonName"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/textView4NS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@id/textView3NS"
+        android:layout_below="@id/textView3NS"
+        android:layout_marginTop="60dp"
+        android:text="Hexadec"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/hexadecimalNS"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@id/textView4NS"
+        android:layout_alignBottom="@id/textView4NS"
+        android:layout_alignStart="@id/buttonNS"
+        android:ems="10"
+        android:hint="eg 00ff"
+        android:inputType="textPersonName"
+        android:textSize="20sp" />
+
+
+</RelativeLayout>

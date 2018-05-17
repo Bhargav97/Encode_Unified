@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">EnCode</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string-array name="number_system_names">
+        <item>Binary</item>
+        <item>Decimal</item>
+        <item>Hexadecimal</item>
+    </string-array>
+    <string-array name="input_mode_names">
+        <item>Preorder</item>
+        <item>Postorder</item>
+    </string-array>
+    <string-array name="output_mode_names">
+        <item>Inorder</item>
+        <item>Preorder</item>
+        <item>Postorder</item>
+    </string-array>
+</resources>

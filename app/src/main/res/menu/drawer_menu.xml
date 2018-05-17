@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/navhome"
+            android:icon="@drawable/ic_home_black"
+            android:title="Home" />
+        <item
+            android:id="@+id/navref"
+            android:icon="@drawable/ic_ref"
+            android:title="Reference" />
+        <item
+            android:id="@+id/navds"
+            android:icon="@drawable/ic_db"
+            android:title="Data Structures" />
+        <item
+            android:id="@+id/navalgo"
+            android:icon="@drawable/ic_algo"
+            android:title="Algorithms" />
+    </group>
+
+    <item android:title="Other Actions">
+        <menu>
+            <item
+                android:id="@+id/navshare"
+                android:icon="@drawable/ic_share"
+                android:title="Share" />
+            <item
+                android:id="@+id/navsettings"
+                android:icon="@drawable/ic_settings"
+                android:title="Settings" />
+        </menu>
+    </item>
+</menu>
