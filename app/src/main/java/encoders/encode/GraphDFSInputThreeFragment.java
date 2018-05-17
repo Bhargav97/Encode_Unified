@@ -45,6 +45,7 @@ public class GraphDFSInputThreeFragment extends Fragment {
             }
         });
         input.requestFocus();
+        GraphDFSFragment.setOutputText("Press \"Generate Traversal\" and you will see the output here");
         getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         final LinearLayout mainLayout = v.findViewById(R.id.mainLayoutGRDFSTH);
         genButton.setOnClickListener(new View.OnClickListener() {

@@ -24,11 +24,11 @@ public class GraphDFSFragment extends Fragment {
     Button go;
     int binary;
     EditText input;
-    static TextView output;
     String inp;
     static String selectedInput;
     static Graph g;
-    static boolean mode; //If true, Graph is Undirected and if false its a directed Graph
+    static boolean mode;
+    static TextView outputText;//If true, Graph is Undirected and if false its a directed Graph
     public static void createGraph(int v){
         g=null;
         g = new Graph(v);
@@ -56,6 +56,10 @@ public class GraphDFSFragment extends Fragment {
         selectedInput=s;
     }
 
+    public static void setOutputText(String s){
+        outputText.setText(s);
+    }
+
     public static boolean showTraversal(int i,Context context) {
         if(i>=g.V || i<0) {
             Toast.makeText(context, "Enter a valid node", Toast.LENGTH_LONG).show();
@@ -66,7 +70,7 @@ public class GraphDFSFragment extends Fragment {
                 g.BFS(i);
             } else
                 g.DFS(i);
-            output.setText(selectedInput + " is shown below\n\n" + g.traversal.toString());
+            outputText.setText(selectedInput + " is as shown below\n\n" + g.traversal.toString());
             g.traversal = new StringBuilder("");
             return  true;
         }
@@ -76,13 +80,9 @@ public class GraphDFSFragment extends Fragment {
         View v = inflater.inflate(R.layout.graph_dfs_fragment,container,false);
         ((MainActivity)getActivity()).setActionBarTitle("Graph DFS & BFS");
         ((MainActivity)getActivity()).setNavItem(R.id.navds);
-
-        final RelativeLayout mainLayout;
-        mainLayout = (RelativeLayout)v.findViewById(R.id.mainLayoutGRDFS);
-
-        output = (TextView) v.findViewById(R.id.textView3GRDFS);
-
-
+        outputText = v.findViewById(R.id.textView3GRDFS);
+        //final RelativeLayout mainLayout;
+        //mainLayout = (RelativeLayout)v.findViewById(R.id.mainLayoutGRDFS);
         getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).add(R.id.fragContainerGraphInput, new GraphDFSInputZeroFragment(), "INPUTZERO").commit();
        // Fragment inputOne = getActivity().getSupportFragmentManager().findFragmentByTag("INPUTONE");
         /*go.setOnClickListener(new View.OnClickListener() {

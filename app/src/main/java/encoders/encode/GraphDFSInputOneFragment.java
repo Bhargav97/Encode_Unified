@@ -24,6 +24,7 @@ public class GraphDFSInputOneFragment extends Fragment {
         final EditText input = v.findViewById(R.id.inputGRDFS1);
         final LinearLayout mainLayout = v.findViewById(R.id.mainLayoutGRDFSO);
         input.requestFocus();
+        GraphDFSFragment.setOutputText("STEP 2");
         getActivity().getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
         b.setOnClickListener(new View.OnClickListener() {
             @Override

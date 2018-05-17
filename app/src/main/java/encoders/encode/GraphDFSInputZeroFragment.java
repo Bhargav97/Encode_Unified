@@ -22,6 +22,7 @@ public class GraphDFSInputZeroFragment extends Fragment {
         View v = inflater.inflate(R.layout.dfs_input_zero_layout, container, false);
         Button b1 = v.findViewById(R.id.buttonGRDFSZ1);
         Button b2 = v.findViewById(R.id.buttonGRDFSZ2);
+        GraphDFSFragment.setOutputText("STEP 1");
         final LinearLayout mainLayout = v.findViewById(R.id.mainLayoutGRDFSO);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
