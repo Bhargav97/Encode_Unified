@@ -8,7 +8,7 @@ public class Graph
 {
     StringBuilder traversal;
 
-    private int V;   // No. of vertices
+    int V;   // No. of vertices
     private LinkedList<Integer> adj[]; //Adjacency Lists
 
     // Constructor
@@ -22,9 +22,42 @@ public class Graph
     }
 
     // Function to add an edge into the graph
-    void addEdge(int v,int w)
+    boolean addEdge(int v,int w)
     {
-        adj[v].add(w);
+        try {
+            adj[v].add(w);
+            return true;
+        }
+        catch (ArrayIndexOutOfBoundsException e){
+            return false;
+        }
+
+    }
+    void DFSUtil(int v,boolean visited[])
+    {
+        // Mark the current node as visited and print it
+        visited[v] = true;
+        traversal.append(" => " + v);
+
+        // Recur for all the vertices adjacent to this vertex
+        Iterator<Integer> i = adj[v].listIterator();
+        while (i.hasNext())
+        {
+            int n = i.next();
+            if (!visited[n])
+                DFSUtil(n, visited);
+        }
+    }
+
+    // The function to do DFS traversal. It uses recursive DFSUtil()
+    void DFS(int v)
+    {
+        // Mark all the vertices as not visited(set as
+        // false by default in java)
+        boolean visited[] = new boolean[V];
+
+        // Call the recursive helper function to print DFS traversal
+        DFSUtil(v, visited);
     }
     void BFS(int s) {
         // Mark all the vertices as not visited(By default
@@ -41,7 +74,7 @@ public class Graph
         while (queue.size() != 0) {
             // Dequeue a vertex from queue and print it
             s = queue.poll();
-            traversal.append(s + " ");
+            traversal.append(" => " + s);
 
             // Get all adjacent vertices of the dequeued vertex s
             // If a adjacent has not been visited, then mark it

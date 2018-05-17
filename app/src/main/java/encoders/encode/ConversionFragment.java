@@ -74,14 +74,14 @@ public class ConversionFragment extends Fragment {
             @Override
             public void onClick(View view, int position) {
                 String selectedItem = (String) rvAdapter.data.get(position).title;
-                if(selectedItem.equals("ASCII")){
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new AsciiFragment()).addToBackStack(null).commit();
+                if(selectedItem.equals("ASCII")){ //android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out
+                    getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new AsciiFragment()).addToBackStack(null).commit();
                 }
                 else if(selectedItem.equals("Unicode")){
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new UnicodeFragment()).addToBackStack(null).commit();
+                    getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new UnicodeFragment()).addToBackStack(null).commit();
                 }
                 else {
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new NumberSystemFragment()).addToBackStack(null).commit();
+                    getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new NumberSystemFragment()).addToBackStack(null).commit();
 
                 }
             }

@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         //this check is to see if the device is just rotated or the app has just started
         if(savedInstanceState==null) {
-            getSupportFragmentManager().beginTransaction().add(R.id.fragment_container, new HomeFragment(),"HOME_FRAGMENT").addToBackStack(null).commit();
+            getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).add(R.id.fragment_container, new HomeFragment(),"HOME_FRAGMENT").addToBackStack(null).commit();
             navigationView.setCheckedItem(R.id.navhome);
         }
 /*
@@ -62,19 +62,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         int id = item.getItemId();
         switch(id){
             case R.id.navhome:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new HomeFragment(),"HOME_FRAGMENT").addToBackStack(null).commit();
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new HomeFragment(),"HOME_FRAGMENT").addToBackStack(null).commit();
                 break;
             case R.id.navref:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new RefFragment()).addToBackStack(null).commit();
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new RefFragment()).addToBackStack(null).commit();
                 break;
             case R.id.navds:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new DSFragment()).addToBackStack(null).commit();
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new DSFragment()).addToBackStack(null).commit();
                 break;
             case R.id.navalgo:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new AlgoFragment()).addToBackStack(null).commit();
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new AlgoFragment()).addToBackStack(null).commit();
                 break;
             case R.id.navcon:
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ConversionFragment()).addToBackStack(null).commit();
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new ConversionFragment()).addToBackStack(null).commit();
                 break;
             case R.id.navfeedback:
                 Toast.makeText(this, "What's the hurry dude!!",

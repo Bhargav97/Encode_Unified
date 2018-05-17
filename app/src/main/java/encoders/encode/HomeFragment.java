@@ -89,16 +89,16 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
 
         switch(v.getId()){
             case R.id.refcardId:
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new RefFragment()).addToBackStack(null).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new RefFragment()).addToBackStack(null).commit();
                 break;
             case R.id.dscardId:
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new DSFragment()).addToBackStack(null).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new DSFragment()).addToBackStack(null).commit();
                 break;
             case R.id.algocardId:
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new AlgoFragment()).addToBackStack(null).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new AlgoFragment()).addToBackStack(null).commit();
                 break;
             case R.id.concardId:
-                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new ConversionFragment()).addToBackStack(null).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new ConversionFragment()).addToBackStack(null).commit();
                 break;
         }
 

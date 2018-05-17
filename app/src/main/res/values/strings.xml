@@ -17,4 +17,8 @@
         <item>Preorder</item>
         <item>Postorder</item>
     </string-array>
+    <string-array name="output_mode_graph_names">
+        <item>Breadth-First Traversal</item>
+        <item>Depth-First Traversal</item>
+    </string-array>
 </resources>

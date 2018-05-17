@@ -29,10 +29,10 @@ public class BinaryTreeFragment extends Fragment {
                 String selectedItem = (String) parent.getItemAtPosition(position);
 
                 if(selectedItem.equals("Perform DFS")){
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new BinaryTreeDFSFragment()).addToBackStack(null).commit();
+                    getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new BinaryTreeDFSFragment()).addToBackStack(null).commit();
                 }
                 else if(selectedItem.equals("Perform BFS")){
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new BinaryTreeBFSFragment()).addToBackStack(null).commit();
+                    getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new BinaryTreeBFSFragment()).addToBackStack(null).commit();
                 }
 
                 /*Intent intent = new Intent(Activity.this,destinationActivity.class);

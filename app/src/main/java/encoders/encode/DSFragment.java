@@ -60,6 +60,9 @@ public class DSFragment extends Fragment {
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+        toolbar.setBackgroundColor(330000);
+       /* mActionBar.setDisplayShowTitleEnabled(false);
+        mActionBar.setDisplayShowTitleEnabled(true);*/
         recyclerView = (RecyclerView) v.findViewById(R.id.ds_rlv);
 
         LinearLayoutManager llm = new LinearLayoutManager(recyclerView.getContext());
@@ -76,13 +79,13 @@ public class DSFragment extends Fragment {
             public void onClick(View view, int position) {
                 String selectedItem = (String) rvAdapter.data.get(position).title;
                 if(selectedItem.equals("Binary Tree")){
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new BinaryTreeFragment()).addToBackStack(null).commit();
+                    getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new BinaryTreeFragment()).addToBackStack(null).commit();
                 }
                 else if(selectedItem.equals("n-ary Tree")){
                     //todo
                 }
                 else if(selectedItem.equals("Directed Graph")){
-                    //todo
+                    getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new GraphFragment()).addToBackStack(null).commit();
                 }
                 else if(selectedItem.equals("Undirected Graph")){
                     //todo

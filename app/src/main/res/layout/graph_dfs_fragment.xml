@@ -3,12 +3,12 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/mainLayoutBTBFS"
+    android:id="@+id/mainLayoutGRDFS"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView1BTBFS"
+        android:id="@+id/textView1GRDFS"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
@@ -18,26 +18,26 @@
         android:textColor="@color/colorPrimaryDark"
         android:textSize="17sp"
         android:textStyle="bold"
-        android:text="Select the input traversal mode" />
+        android:text="Select the output traversal mode" />
     <LinearLayout
-        android:layout_below="@id/textView1BTBFS"
+        android:layout_below="@id/textView1GRDFS"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/lightgray"></LinearLayout>
     <LinearLayout
-        android:id="@+id/inputLabelLLBTBFS"
+        android:id="@+id/inputLabelLLGRDFS"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/textView1BTBFS"
+        android:layout_below="@id/textView1GRDFS"
         android:layout_marginTop="10dp"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true">
         <TextView
-            android:id="@+id/textView2BTBFS"
+            android:id="@+id/textView2GRDFS"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="Input Mode"
+            android:text="Output Mode"
             android:layout_weight="1"
             android:textColor="@color/colorPrimaryDark"
             android:spinnerMode="dialog" />
@@ -45,60 +45,46 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/inputLLBTBFS"
+        android:id="@+id/inputLLGRDFS"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/inputLabelLLBTBFS"
+        android:layout_below="@id/inputLabelLLGRDFS"
         android:layout_margin="5dp"
         android:orientation="horizontal"
         android:layout_centerHorizontal="true">
         <Spinner
             android:gravity="center"
             android:layout_gravity="center"
-            android:id="@+id/spinner1BTBFS"
+            android:id="@+id/spinner1GRDFS"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1" />
 
     </LinearLayout>
     <LinearLayout
-        android:layout_below="@id/inputLLBTBFS"
+        android:layout_below="@id/inputLLGRDFS"
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:background="@color/lightgray"></LinearLayout>
-    <EditText
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_below="@id/inputLLBTBFS"
-        android:id="@+id/inputBTBFS"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="20dp"
+    <FrameLayout
+        android:layout_below="@id/inputLLGRDFS"
+        android:id="@+id/fragContainerGraphInput"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Enter the array, seperated by comma"
-        android:inputType="text" />
+        android:layout_height="wrap_content" />
 
 
-    <Button
-        android:id="@+id/buttonBTBFS"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/inputBTBFS"
-        android:layout_centerHorizontal="true"
-        android:text="Generate chosen LOT"
-        android:elevation="@dimen/cardview_default_elevation"/>
 
     <TextView
-        android:id="@+id/textView3BTBFS"
+        android:id="@+id/textView3GRDFS"
         android:layout_marginTop="25dp"
-        android:layout_below="@id/buttonBTBFS"
+        android:layout_below="@id/fragContainerGraphInput"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="match_parent"
         android:padding="10dp"
         android:textSize="20sp"
         android:gravity="center"
         android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"
-        android:text="Your chosen mode of Breadth-First Traversal will appear here"/>
+        android:text="Your chosen mode of Breadth-First or Depth-First Traversal will appear here"/>
 
 </RelativeLayout>
