@@ -29,6 +29,7 @@ public class ConversionFragment extends Fragment {
     public void onResume() {
         super.onResume();
         ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+        MainActivity.hideSearch();
     }
     @Override
     public void onStop() {

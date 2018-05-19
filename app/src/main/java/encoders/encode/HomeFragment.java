@@ -15,14 +15,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
+
 public class HomeFragment extends Fragment implements View.OnClickListener {
-    CardView refCard, dsCard, algoCard, fbCard;
+
+   CardView refCard, dsCard, algoCard, fbCard;
+    MaterialSearchView searchView;
     //Hide the main activity Toolbar to set our collapsableToolbar
     public int getStatusBarHeight() {
         int result = 0;
@@ -32,15 +39,21 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         }
         return result;
     }
+
+    @Override
+    public void onStart(){
+        MainActivity.showSearch();
+        super.onStart();
+    }
     @Override
     public void onResume() {
         super.onResume();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+       // ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
     }
     @Override
     public void onStop() {
         super.onStop();
-        ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+      //  ((AppCompatActivity)getActivity()).getSupportActionBar().show();
     }
     /*public int getStatusBarHeight() {
         int result = 0;
@@ -54,15 +67,20 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.home_fragment, container, false);
-        ((MainActivity)getActivity()).setActionBarTitle("Home");
-        ((MainActivity)getActivity()).setNavItem(R.id.navhome);
+       // setHasOptionsMenu(true);
+        /*((MainActivity)getActivity()).setActionBarTitle("Home");
+        ((MainActivity)getActivity()).setNavItem(R.id.navhome);*/
         //Changes for Collapsing Toolbar
-        DrawerLayout drawer = getActivity().findViewById(R.id.drawer_layout);
-        Toolbar toolbar = v.findViewById(R.id.toolbaridhome);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(getActivity(), drawer, toolbar,
+        //DrawerLayout drawer = getActivity().findViewById(R.id.drawer_layout);
+        //Toolbar toolbar = v.findViewById(R.id.toolbaridhome);
+        //((MainActivity) getActivity()).setSupportActionBar(toolbar);
+        //toolbar.setTitle("Material Search");
+       // toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
+        //searchView = (MaterialSearchView) getActivity().findViewById(R.id.search_view);
+      /*  ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(getActivity(), drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
-        toggle.syncState();
+        toggle.syncState();*/
       /*  if (v.findViewById(R.id.home_cl) != null) {
             CoordinatorLayout.LayoutParams params = new CoordinatorLayout.LayoutParams(CoordinatorLayout.LayoutParams.MATCH_PARENT, CoordinatorLayout.LayoutParams.MATCH_PARENT);
             params.setMargins(0, -getStatusBarHeight(), 0, 0); //setting negative margin to root CL, important
@@ -85,8 +103,6 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     }
 
     public void onClick(View v){
-        Intent i;
-
         switch(v.getId()){
             case R.id.refcardId:
                 getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new RefFragment()).addToBackStack(null).commit();
@@ -101,6 +117,22 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
                 getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new ConversionFragment()).addToBackStack(null).commit();
                 break;
         }
-
     }
+
+   /* @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        Toolbar toolbar = (Toolbar) view.findViewById(R.id.toolbar);
+        //((MainActivity)getActivity()).setSupportActionBar(toolbar);
+        setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        inflater.inflate(R.menu.menu_item, menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+        searchView.setMenuItem(item);
+        super.onCreateOptionsMenu(menu,inflater);
+    }*/
+
 }

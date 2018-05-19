@@ -10,18 +10,43 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
     private DrawerLayout drawer;
     NavigationView navigationView;
-
+    static MaterialSearchView searchView;
+   // static SearchView searchView;
+    static TextView welcome;
+    static View viewShadow;
+    static ListView searchListView;
+    String[] searchSource = {
+        "Binary Tree",
+        "Graph",
+        "Directed Graph",
+        "Undirected Graph",
+        "Conversion",
+        "ASCII",
+        "Unicode",
+        "Number System",
+        "Numbah",
+        "BFS",
+        "DFS",
+        "BST"
+    };
     public int getStatusBarHeight() {
         int result = 0;
         int resourceId = getResources().getIdentifier("status_bar_height", "dimen", "android");
@@ -30,14 +55,45 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         return result;
     }
+
+    public static void hideSearch(){
+        searchView.setVisibility(View.GONE);
+        welcome.setVisibility(View.GONE);
+        viewShadow.setVisibility(View.GONE);
+    }
+    public static void showSearch(){
+        searchView.setVisibility(View.VISIBLE);
+        welcome.setVisibility(View.VISIBLE);
+        viewShadow.setVisibility(View.VISIBLE);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-       setSupportActionBar(toolbar);
+        setSupportActionBar(toolbar);
+        toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
         drawer = findViewById(R.id.drawer_layout);
+        //searchListView = findViewById(R.id.searchListView);
+        searchView = findViewById(R.id.search_view);
+        /*searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
+            }
+        });
+        //Search List View
+
+
+        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,searchSource);
+        searchListView.setAdapter(adapter);
+*/
         //Set listeners to clicks on nav menu items
 
         navigationView = findViewById(R.id.nav_view);
@@ -49,6 +105,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
+
+        welcome = findViewById(R.id.welcome_text);
+        viewShadow = findViewById(R.id.shadowswag);
         //this check is to see if the device is just rotated or the app has just started
         if(savedInstanceState==null) {
             getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).add(R.id.fragment_container, new HomeFragment(),"HOME_FRAGMENT").addToBackStack(null).commit();
@@ -90,7 +149,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
     public void setActionBarTitle(String title) {
-        getSupportActionBar().setTitle(title);
+       getSupportActionBar().setTitle(title);
     }
 
     public void setNavItem(int id){
@@ -120,6 +179,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             super.onBackPressed();
         }
+    }
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_item,menu);
+        MenuItem item = menu.findItem(R.id.action_search);
+        searchView.setMenuItem(item);
+        //searchView = (SearchView)item.getActionView();
+        return true;
     }
 
 }

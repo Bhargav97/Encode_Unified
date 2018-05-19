@@ -14,15 +14,60 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:fitsSystemWindows="false"
-            android:layout_height="?android:attr/actionBarSize"
-            android:background="@color/colorPrimary"
-            android:elevation="4dp"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+            android:layout_height="wrap_content"
+            android:background="@drawable/shadow_bg">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:fitsSystemWindows="false"
+                android:layout_height="?android:attr/actionBarSize"
+                android:background="@color/colorPrimary"
+                android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+           <com.miguelcatalan.materialsearchview.MaterialSearchView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/search_view"
+                app:searchBackground="@color/white"
+                app:searchSuggestionBackground="@color/colorPrimary"
+                app:searchCloseIcon="@drawable/ic_arrow"
+                />
+           <!--<android.support.v7.widget.SearchView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/search_view"
+                app:searchBackground="@color/white"
+                app:searchSuggestionBackground="@color/colorPrimary"
+                app:searchCloseIcon="@drawable/ic_arrow"></android.support.v7.widget.SearchView>-->
+            <!--<ListView
+                android:layout_below="@id/toolbar"
+                android:divider="#806326"
+                android:dividerHeight="1dp"
+                android:id="@+id/searchListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                ></ListView>-->
+        </RelativeLayout>
+        <View
+            android:id="@+id/shadowswag"
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:background="@drawable/shadow_hack" />
+        <TextView
+            android:id="@+id/welcome_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="20dp"
+            android:background="#fcfcfc"
+            android:textColor="@color/grey"
+            android:textSize="45sp"
+            android:text="Welcome!"/>
 
         <FrameLayout
             android:id="@+id/fragment_container"

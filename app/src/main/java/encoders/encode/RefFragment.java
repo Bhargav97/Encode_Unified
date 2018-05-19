@@ -35,6 +35,7 @@ public class RefFragment extends Fragment {
     public void onResume() {
         super.onResume();
         ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
+        MainActivity.hideSearch();
     }
     @Override
     public void onStop() {
@@ -61,6 +62,7 @@ public class RefFragment extends Fragment {
         //trying to get hamburger icon back for nav drawer
         DrawerLayout drawer = getActivity().findViewById(R.id.drawer_layout);
         Toolbar toolbar = v.findViewById(R.id.toolbaridref);
+
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(getActivity(), drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
