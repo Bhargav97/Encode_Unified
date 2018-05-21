@@ -75,6 +75,13 @@ public class GraphDFSFragment extends Fragment {
             return  true;
         }
     }
+
+    //To enable searchView on non-Major fragments
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        MainActivity.partialSearch();
+        super.onCreate(savedInstanceState);
+    }
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
 
         View v = inflater.inflate(R.layout.graph_dfs_fragment,container,false);

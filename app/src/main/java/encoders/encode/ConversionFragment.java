@@ -30,11 +30,13 @@ public class ConversionFragment extends Fragment {
         super.onResume();
         ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
         MainActivity.hideSearch();
+        MainActivity.setMajor();
     }
     @Override
     public void onStop() {
         super.onStop();
         ((AppCompatActivity)getActivity()).getSupportActionBar().show();
+        MainActivity.unsetMajor();
     }
     public static List<RVInfo> getData(){
         List<RVInfo> dataList = new ArrayList<>();

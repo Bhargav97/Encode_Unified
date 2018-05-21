@@ -30,7 +30,12 @@ public class BinaryTreeDFSFragment extends Fragment {
     String selectedInput, selectedOutput;
     int[] inparr;
     String[] inpstrarr;
-
+    //To enable searchView on non-Major fragments
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        MainActivity.partialSearch();
+        super.onCreate(savedInstanceState);
+    }
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
 
         View v = inflater.inflate(R.layout.binary_tree_dfs_layout,container,false);

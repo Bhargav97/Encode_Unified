@@ -20,7 +20,12 @@ public class UnicodeFragment extends Fragment {
     EditText input;
     EditText output;
     Button convert;
-
+    //To enable searchView on non-Major fragments
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        MainActivity.partialSearch();
+        super.onCreate(savedInstanceState);
+    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

@@ -14,6 +14,13 @@ import android.widget.ListView;
 public class BinaryTreeFragment extends Fragment {
 
     String options[] = {"Perform BFS", "Perform DFS"};
+    //To enable searchView on non-Major fragments
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        MainActivity.partialSearch();
+        super.onCreate(savedInstanceState);
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

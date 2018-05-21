@@ -29,7 +29,12 @@ public class NumberSystemFragment extends Fragment {
     TextView output1,out2,out3;
     String inp;
     String selected;
-
+    //To enable searchView on non-Major fragments
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        MainActivity.partialSearch();
+        super.onCreate(savedInstanceState);
+    }
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.number_system_layout,container,false);
         ((MainActivity)getActivity()).setActionBarTitle("Number Systems");

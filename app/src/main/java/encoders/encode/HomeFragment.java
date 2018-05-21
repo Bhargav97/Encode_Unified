@@ -43,6 +43,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onStart(){
         MainActivity.showSearch();
+        MainActivity.setTitleToHome();
         super.onStart();
     }
     @Override
@@ -74,7 +75,7 @@ public class HomeFragment extends Fragment implements View.OnClickListener {
         //DrawerLayout drawer = getActivity().findViewById(R.id.drawer_layout);
         //Toolbar toolbar = v.findViewById(R.id.toolbaridhome);
         //((MainActivity) getActivity()).setSupportActionBar(toolbar);
-        //toolbar.setTitle("Material Search");
+       // getActivity().getSupportActionBar().setTitle("Home");//toolbar.setTitle("Material Search");
        // toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
         //searchView = (MaterialSearchView) getActivity().findViewById(R.id.search_view);
       /*  ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(getActivity(), drawer, toolbar,
