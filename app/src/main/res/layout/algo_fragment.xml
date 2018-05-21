@@ -15,16 +15,26 @@
             android:id="@+id/collapsingtoolbaralgo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/green"
-            app:contentScrim="@color/colorPrimary"
-            app:expandedTitleMarginEnd="64dp"
+            app:contentScrim="#558B2F"
             app:layout_scrollFlags="exitUntilCollapsed|scroll"
             app:title="Algorithms">
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbaridalgo"
+            <ImageView
+                android:scaleY="1.6"
+                android:id="@+id/img"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="324dp"
+
+                android:src="@drawable/green"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.7"
+                />
+            <android.support.v7.widget.Toolbar
+                android:paddingTop="24dp"
+                android:id="@+id/toolbaridalgo"
+                android:fitsSystemWindows="false"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -40,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <View
-                android:layout_height="5dp"
+                android:layout_height="2dp"
                 android:layout_width="match_parent"
                 android:background="@drawable/shadow_hack" />
             <android.support.v7.widget.RecyclerView

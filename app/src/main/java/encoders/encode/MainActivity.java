@@ -3,6 +3,7 @@ package encoders.encode;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -43,9 +44,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     static ListView searchListView;
     static ActionBar actionBar;
     static boolean isMajor;
+    static Toolbar toolbar;
     public static void setMajor(){ isMajor=true; }
     public static void unsetMajor(){ isMajor=false; }
-
+    static Window w;
     FragmentManager mFragmentManager;
     CardView refCard, dsCard, algoCard, fbCard;
     String[] searchSource = {
@@ -89,12 +91,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public static void setTitleToHome(){
         actionBar.setTitle("Home");
     }
+
+    public static void dothis(){
+        // in Activity's onCreate() for instance
+        w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+       /* CollapsingToolbarLayout.LayoutParams lp = (CollapsingToolbarLayout.LayoutParams) toolbar.getLayoutParams();
+        lp.setMargins(0,24,0,0);
+        toolbar.setLayoutParams(lp);*/
+    }
+    public static void undothis(){
+        // in Activity's onCreate() for instance
+
+        w.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
@@ -105,6 +119,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         searchListView.setVisibility(View.GONE);
         actionBar = getSupportActionBar();
         homell = findViewById(R.id.homell);
+        w = getWindow();
         mFragmentManager = ((FragmentActivity) this).getSupportFragmentManager();
         searchListViewAdapter = new ArrayAdapter(this,R.layout.search_item_layout,searchSource);
         searchListView.setAdapter(searchListViewAdapter);
@@ -381,6 +396,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.dscardId:
                 if(searchView.isSearchOpen()){
+                    searchView.closeSearch();
 
                 }
                 getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new DSFragment(),"DS").addToBackStack(null).commit();

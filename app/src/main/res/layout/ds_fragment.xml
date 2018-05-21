@@ -4,28 +4,44 @@
     android:id="@+id/ds_cl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fcfcfc">
+    android:background="#fcfcfc"
+    android:fitsSystemWindows="true"
+    >
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appds"
         android:layout_width="match_parent"
         android:layout_height="300dp"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:fitsSystemWindows="true"
+        >
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsingtoolbards"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/pink"
-            app:contentScrim="@color/colorPrimary"
-            app:expandedTitleMarginEnd="64dp"
+            android:layout_marginTop="0dp"
+            app:contentScrim="#D50000"
+            app:collapsedTitleGravity="center|start"
             app:layout_scrollFlags="exitUntilCollapsed|scroll"
-            app:title="Data Structures">
+            app:title="Data Structures"
 
-            <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbaridds"
+            >
+            <ImageView
+                android:scaleY="1.6"
+                android:id="@+id/img"
                 android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="324dp"
+                android:src="@drawable/pink"
+                app:layout_collapseMode="parallax"
+                app:layout_collapseParallaxMultiplier="0.7"
+                />
+            <android.support.v7.widget.Toolbar
+                android:paddingTop="24dp"
+                android:id="@+id/toolbaridds"
+                android:fitsSystemWindows="false"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
                 app:layout_collapseMode="pin"
                 app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
         </android.support.design.widget.CollapsingToolbarLayout>

@@ -32,12 +32,14 @@ public class AlgoFragment extends Fragment {
         ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
         MainActivity.hideSearch();
         MainActivity.setMajor();
+        MainActivity.dothis();
     }
     @Override
     public void onStop() {
         super.onStop();
         ((AppCompatActivity)getActivity()).getSupportActionBar().show();
         MainActivity.unsetMajor();
+        MainActivity.undothis();
     }
     public static List<RVInfo> getData(){
         List<RVInfo> dataList = new ArrayList<>();

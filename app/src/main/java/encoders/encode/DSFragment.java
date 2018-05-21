@@ -33,13 +33,14 @@ public class DSFragment extends Fragment {
         ((AppCompatActivity)getActivity()).getSupportActionBar().hide();
         MainActivity.hideSearch();
         MainActivity.setMajor();
+        MainActivity.dothis();
     }
     @Override
     public void onStop() {
         super.onStop();
         ((AppCompatActivity)getActivity()).getSupportActionBar().show();
         MainActivity.unsetMajor();
-
+        MainActivity.undothis();
     }
     public static List<RVInfo> getData(){
         List<RVInfo> dataList = new ArrayList<>();
@@ -64,6 +65,7 @@ public class DSFragment extends Fragment {
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
         //toolbar.setBackgroundColor(0x330000);
        /* mActionBar.setDisplayShowTitleEnabled(false);
         mActionBar.setDisplayShowTitleEnabled(true);*/
