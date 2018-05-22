@@ -55,9 +55,11 @@ public class DijkstrasFragment extends Fragment {
         }
         Toast.makeText(context, "prepping", Toast.LENGTH_LONG).show();
 
-        g.dijkstra(i,j);
+        g.dijkstra(i,j,context);
         outputText1.setText(Integer.toString(g.shortestDist));
         outputText2.setText(g.shortestPath);
+        g.shortestPath="";
+        g.shortestDist=0;
         return  true;
     }
 

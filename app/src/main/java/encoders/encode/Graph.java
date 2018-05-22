@@ -1,6 +1,10 @@
 package encoders.encode;
 
 
+import android.content.Context;
+import android.widget.Toast;
+
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
@@ -13,7 +17,7 @@ public class Graph
     private LinkedList<Integer> adj[]; //Adjacency Lists
     private LinkedList<WeightedEdge> weightAdj[]; //For Dijkstra
     boolean weighted;
-    PriorityQueue q;
+    PriorityQueue<Integer> q;
     boolean[] visited;
     int[] parent;
     int[] dist;
@@ -37,7 +41,7 @@ public class Graph
             weightAdj[i] = new LinkedList<WeightedEdge>();
         }
         this.weighted=weighted;
-        q = new PriorityQueue();
+        q = new PriorityQueue<Integer>(V,Collections.reverseOrder());
         visited = new boolean[v];
         dist = new int[v];
         parent = new int[v];
@@ -124,7 +128,7 @@ public class Graph
         }
     }
 
-    void dijkstra(int src, int dest){
+    void dijkstra(int src, int dest, Context ctx){
         dist[src]=0;
         for(int i=0;i<V;i++){
             if(i!=src)
@@ -134,20 +138,25 @@ public class Graph
         int v,alt;
         Iterator itr = q.iterator();
         while(itr.hasNext()){
-            v=(Integer)q.poll();
+            v=q.poll();
+
             visited[v]=true;
             for(int u=0;u<weightAdj[v].size();u++){
                 alt = dist[v] + weightAdj[v].get(u).weight;
-                if(alt<dist[u]){
-                    dist[u]=alt;
-                    parent[u]=v;
+                if(alt<dist[weightAdj[v].get(u).dest]){
+
+                    dist[weightAdj[v].get(u).dest]=alt;
+                    parent[weightAdj[v].get(u).dest]=v;
                 }
             }
         }
         shortestDist=dist[dest];
         int i = dest;
+       // Toast.makeText(ctx,"parent[dest] is" + dest+ "and"+Integer.toString(parent[dest]),Toast.LENGTH_LONG).show();
+        shortestPath=Integer.toString(dest);
         while(parent[i]!=src){
             shortestPath = Integer.toString(parent[i]) + ">" + shortestPath;
+            i=parent[i];
         }
         shortestPath = Integer.toString(parent[i]) + ">" + shortestPath;
 
