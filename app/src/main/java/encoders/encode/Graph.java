@@ -3,6 +3,7 @@ package encoders.encode;
 
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.PriorityQueue;
 
 public class Graph
 {
@@ -10,7 +11,14 @@ public class Graph
 
     int V;   // No. of vertices
     private LinkedList<Integer> adj[]; //Adjacency Lists
-
+    private LinkedList<WeightedEdge> weightAdj[]; //For Dijkstra
+    boolean weighted;
+    PriorityQueue q;
+    boolean[] visited;
+    int[] parent;
+    int[] dist;
+    int shortestDist;
+    String shortestPath;
     // Constructor
     Graph(int v)
     {
@@ -19,9 +27,35 @@ public class Graph
         adj = new LinkedList[v];
         for (int i=0; i<v; ++i)
             adj[i] = new LinkedList();
+        weighted=false;
     }
-
+    Graph(int v, boolean weighted){
+        this.V = v;
+        traversal = new StringBuilder("");
+        weightAdj = new LinkedList[v];
+        for (int i=0; i<v; ++i) {
+            weightAdj[i] = new LinkedList<WeightedEdge>();
+        }
+        this.weighted=weighted;
+        q = new PriorityQueue();
+        visited = new boolean[v];
+        dist = new int[v];
+        parent = new int[v];
+        shortestDist=0;
+    }
     // Function to add an edge into the graph
+    boolean addEdge(int x,int y, int weight)
+    {
+        try {
+            WeightedEdge we = new WeightedEdge(y,weight);
+            weightAdj[x].add(we);
+            return true;
+        }
+        catch (ArrayIndexOutOfBoundsException e){
+            return false;
+        }
+
+    }
     boolean addEdge(int v,int w)
     {
         try {
@@ -88,5 +122,34 @@ public class Graph
                 }
             }
         }
+    }
+
+    void dijkstra(int src, int dest){
+        dist[src]=0;
+        for(int i=0;i<V;i++){
+            if(i!=src)
+                dist[i]=999; //infinity
+            q.add(i);
+        }
+        int v,alt;
+        Iterator itr = q.iterator();
+        while(itr.hasNext()){
+            v=(Integer)q.poll();
+            visited[v]=true;
+            for(int u=0;u<weightAdj[v].size();u++){
+                alt = dist[v] + weightAdj[v].get(u).weight;
+                if(alt<dist[u]){
+                    dist[u]=alt;
+                    parent[u]=v;
+                }
+            }
+        }
+        shortestDist=dist[dest];
+        int i = dest;
+        while(parent[i]!=src){
+            shortestPath = Integer.toString(parent[i]) + ">" + shortestPath;
+        }
+        shortestPath = Integer.toString(parent[i]) + ">" + shortestPath;
+
     }
 }

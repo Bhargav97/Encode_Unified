@@ -81,6 +81,8 @@ public class AlgoFragment extends Fragment {
                 if(selectedItem.equals("Search Algos")){
                 }
                 else if(selectedItem.equals("Greedy Algos")){
+                    getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new GreedyFragment()).addToBackStack(null).commit();
+
                 }
                 else {
 
