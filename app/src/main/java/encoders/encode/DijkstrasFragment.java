@@ -56,8 +56,8 @@ public class DijkstrasFragment extends Fragment {
         Toast.makeText(context, "prepping", Toast.LENGTH_LONG).show();
 
         g.dijkstra(i,j,context);
-        outputText1.setText(Integer.toString(g.shortestDist));
-        outputText2.setText(g.shortestPath);
+        outputText1.setText("Shortest Distance from Source to Destination is = "+g.shortestDist);
+        outputText2.setText("Shortest Path from your source to Destination goes like this\n\n"+g.shortestPath);
         g.shortestPath="";
         g.shortestDist=0;
         return  true;

@@ -34,12 +34,13 @@
     <TextView
         android:id="@+id/textView4GRDDJK"
         android:layout_marginTop="25dp"
+
         android:layout_below="@id/textView3GRDDJK"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp"
         android:textSize="20sp"
-        android:gravity="center"
+        android:gravity="top"
         android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"
         android:text="Your chosen mode of Breadth-First or Depth-First Traversal will appear here"/>

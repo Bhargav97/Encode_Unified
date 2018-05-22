@@ -41,7 +41,7 @@ public class Graph
             weightAdj[i] = new LinkedList<WeightedEdge>();
         }
         this.weighted=weighted;
-        q = new PriorityQueue<Integer>(V,Collections.reverseOrder());
+        q = new PriorityQueue<Integer>(/*V,Collections.reverseOrder()*/);
         visited = new boolean[v];
         dist = new int[v];
         parent = new int[v];
@@ -155,10 +155,10 @@ public class Graph
        // Toast.makeText(ctx,"parent[dest] is" + dest+ "and"+Integer.toString(parent[dest]),Toast.LENGTH_LONG).show();
         shortestPath=Integer.toString(dest);
         while(parent[i]!=src){
-            shortestPath = Integer.toString(parent[i]) + ">" + shortestPath;
+            shortestPath = Integer.toString(parent[i]) + " > " + shortestPath;
             i=parent[i];
         }
-        shortestPath = Integer.toString(parent[i]) + ">" + shortestPath;
+        shortestPath = Integer.toString(parent[i]) + " > " + shortestPath;
 
     }
 }

@@ -52,7 +52,7 @@ public class GreedyDijkstrasThreeFragment extends Fragment {
         newButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragContainerDijkstrasInput, new GreedyDijkstrasOneFragment(), "INPUTZERO").commit();
+                getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragContainerDijkstrasInput, new GreedyDijkstrasZeroFragment(), "INPUTZERO").commit();
 
             }
         });
