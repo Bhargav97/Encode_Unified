@@ -43,7 +43,7 @@ public class GreedyDijkstrasThreeFragment extends Fragment {
                 if(DijkstrasFragment.showTraversal(i,j,getActivity())==true)
                     status.setText("Shortest Path Generated!");
                 else
-                    status.setText("Invalid Node");
+                    status.setText("Invalifd Node");
                 InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(mainLayout.getWindowToken(), 0);
             }
