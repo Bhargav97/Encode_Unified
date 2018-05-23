@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_gravity="center"
+    android:id="@+id/mainLayoutBinarySearch">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="17dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        android:padding="2dp"
+        android:layout_marginBottom="10dp"
+        android:text="Enter the array and the element to search" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/black_overlay"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:padding="2dp"
+        android:text="(Array will be auto-sorted for Binary Search)" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/black_overlay"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:padding="2dp"
+        android:text="(Seperate array elements by Spaces)"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="17dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginTop="17dp"
+
+        android:layout_marginBottom="10dp"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/binarySearchInput1"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:hint="Your array"/>
+        <EditText
+            android:id="@+id/binarySearchInput2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="Search Element"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:inputType="number"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/binarySearchButton"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:text="Let's Binary Search"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"/>
+    <TextView
+        android:id="@+id/statusTextBS"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/green"
+        android:gravity="center"
+        android:textSize="15sp"/>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <HorizontalScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:id="@+id/dynamicBSLL">
+                <TextView
+                    android:id="@+id/binarySearchDefault"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    style="@style/BinarySearchDynamicOutputView"
+                    android:text="Your output will appear here"/>
+            </LinearLayout>
+        </HorizontalScrollView>
+    </ScrollView>
+</LinearLayout>

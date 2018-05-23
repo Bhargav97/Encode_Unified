@@ -55,6 +55,12 @@
         <item name="android:textStyle">italic</item>
         <item name="android:background">#F0E68C</item>
     </style>
+    <style name="BinarySearchDynamicOutputView" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/deeppurple</item>
+        <item name="android:textSize">20sp</item>
+    </style>
     <style name="Base.Theme.DesignDemo" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">#673AB7</item>
         <item name="colorPrimaryDark">#512DA8</item>

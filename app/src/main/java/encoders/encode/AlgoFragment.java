@@ -79,6 +79,8 @@ public class AlgoFragment extends Fragment {
             public void onClick(View view, int position) {
                 String selectedItem = (String) rvAdapter.data.get(position).title;
                 if(selectedItem.equals("Search Algos")){
+                    getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new SearchesFragment()).addToBackStack(null).commit();
+
                 }
                 else if(selectedItem.equals("Greedy Algos")){
                     getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new GreedyFragment()).addToBackStack(null).commit();
