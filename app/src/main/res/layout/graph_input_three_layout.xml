@@ -88,6 +88,8 @@
         android:orientation="horizontal"
         android:layout_gravity="center">
         <Button
+            style="@style/Widget.AppCompat.Button.Colored"
+
             android:id="@+id/buttonGRDFS4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -95,6 +97,8 @@
             android:elevation="@dimen/cardview_default_elevation"
             android:text="Generate Traversal" />
         <Button
+            style="@style/Widget.AppCompat.Button.Colored"
+
             android:id="@+id/buttonGRDFS5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

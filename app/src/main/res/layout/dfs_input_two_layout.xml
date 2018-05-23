@@ -63,7 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-
+            style="@style/Widget.AppCompat.Button.Colored"
             android:elevation="@dimen/cardview_default_elevation"
             android:text="Add an Edge" />
         <Button
@@ -72,6 +72,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:elevation="@dimen/cardview_default_elevation"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:text="Submit Graph" />
     </LinearLayout>
 

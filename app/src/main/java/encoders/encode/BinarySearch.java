@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.util.Arrays;
@@ -114,7 +115,6 @@ public class BinarySearch extends Fragment {
         ((MainActivity)getActivity()).setNavItem(R.id.navalgo);
         final LinearLayout mainLayout = v.findViewById(R.id.mainLayoutBinarySearch);
         linearLayout = (LinearLayout) v.findViewById(R.id.dynamicBSLL); //dynamic children containing BS LL
-        defaultTV = v.findViewById(R.id.binarySearchDefault);
         input1 = (EditText) v.findViewById(R.id.binarySearchInput1);
         input2 = (EditText) v.findViewById(R.id.binarySearchInput2);
         final TextView statusText = v.findViewById(R.id.statusTextBS);
@@ -124,25 +124,32 @@ public class BinarySearch extends Fragment {
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                linearLayout.removeAllViews();
-                defaultTV.setVisibility(View.GONE);
-                statusText.setText("Bold is the MID and underlined is element to search");
+
                 String[] inputStr;
-                iteration=0;
-                inputStr = input1.getText().toString().split(" ");
-                int searchElement = Integer.parseInt(input2.getText().toString());
-                int[] inputInt = new int[inputStr.length];
-                for(int i = 0; i < inputStr.length; i++) {
-                    inputInt[i] = Integer.parseInt(inputStr[i]);
+                int searchElement;
+                if(input1.getText().toString().equals("") || input2.getText().toString().equals("")) {
+                    Toast.makeText(getActivity(), "Fill the details first", Toast.LENGTH_LONG).show();
                 }
-                Arrays.sort(inputInt);
-                generateDivider(linearLayout,getLayoutInflater());
-                binarySearch(inputInt,0,inputInt.length,searchElement, getActivity(),linearLayout,getLayoutInflater());
-                TextView tv = new TextView(getActivity());
-                generateDivider(linearLayout,getLayoutInflater());
-                tv.setText("Maximum possible iterations in submitted array = Log N (base 2) which is "+(int)(Math.log(inputInt.length)/Math.log(2)));
-                tv.setTextAppearance(getActivity(), R.style.BinarySearchMetaInfoOutputView);
-                linearLayout.addView(tv);
+                else {
+                    iteration=0;
+                    linearLayout.removeAllViews();
+                    statusText.setText("(MID is shown in Bold and the element to search is underlined)");
+                    inputStr = input1.getText().toString().split(" ");
+                    searchElement = Integer.parseInt(input2.getText().toString());
+
+                    int[] inputInt = new int[inputStr.length];
+                    for (int i = 0; i < inputStr.length; i++) {
+                        inputInt[i] = Integer.parseInt(inputStr[i]);
+                    }
+                    Arrays.sort(inputInt);
+                    generateDivider(linearLayout, getLayoutInflater());
+                    binarySearch(inputInt, 0, inputInt.length, searchElement, getActivity(), linearLayout, getLayoutInflater());
+                    TextView tv = new TextView(getActivity());
+                    generateDivider(linearLayout, getLayoutInflater());
+                    tv.setText("Maximum possible iterations in submitted array = Log N (base 2) which is " + (int) (Math.log(inputInt.length) / Math.log(2)));
+                    tv.setTextAppearance(getActivity(), R.style.BinarySearchMetaInfoOutputView);
+                    linearLayout.addView(tv);
+                }
                 InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(mainLayout.getWindowToken(), 0);
             }
