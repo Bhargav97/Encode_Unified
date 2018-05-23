@@ -30,10 +30,17 @@ public class BinarySearch extends Fragment {
         MainActivity.partialSearch();
         super.onCreate(savedInstanceState);
     }
+    public static void generateDivider(LinearLayout ll, LayoutInflater linf){
+        LayoutInflater myInflater = linf;
+        View myView = myInflater.inflate(R.layout.divider_line_view, ll, false);
+        ll.addView(myView);
+    }
+    //Function to make part of text bold, you can always customize this
     // x is MID and y is the Element we're searching for
-    public static String decorMyArr(int[] arr, int x, int y, int lower, int upper, int itr){  //Function to make part of text bold
+    public static String decorMyArr(int[] arr, int x, int y, int lower, int upper, int itr){
         String htmlString="Iteration "+ itr + ": ";
         for(int i=lower; i<upper; i++){
+            //When mid and element to search is the same
             if(i==y && arr[i]==x){
                 htmlString = htmlString + " <b><u><i>" + arr[i] + "</i></u></b> ";
                 continue;
@@ -54,7 +61,7 @@ public class BinarySearch extends Fragment {
         }
         return htmlString;
     }
-    public static int binarySearch(int arr[], int l, int r, int x, Context ctx, LinearLayout ll)
+    public static int binarySearch(int arr[], int l, int r, int x, Context ctx, LinearLayout ll, LayoutInflater linf)
     {
         if (r>=l)
         {
@@ -68,6 +75,7 @@ public class BinarySearch extends Fragment {
                 tv.setText(Html.fromHtml(currentOutput));
                 tv.setTextAppearance(ctx, R.style.BinarySearchDynamicOutputView);
                 ll.addView(tv);
+                generateDivider(ll,linf);
                 return mid;
             }
             // If element is smaller than mid, then
@@ -78,8 +86,9 @@ public class BinarySearch extends Fragment {
                 tv.setText(Html.fromHtml(currentOutput));
                 tv.setTextAppearance(ctx, R.style.BinarySearchDynamicOutputView);
                 ll.addView(tv);
+                generateDivider(ll,linf);
                 iteration++;
-                return binarySearch(arr, l, mid - 1, x,ctx,ll);
+                return binarySearch(arr, l, mid - 1, x,ctx,ll,linf);
             }
             // Else the element can only be present
             // in right subarray
@@ -88,8 +97,9 @@ public class BinarySearch extends Fragment {
             tv.setText(Html.fromHtml(currentOutput));
             tv.setTextAppearance(ctx, R.style.BinarySearchDynamicOutputView);
             ll.addView(tv);
+            generateDivider(ll,linf);
             iteration++;
-            return binarySearch(arr, mid+1, r, x,ctx,ll);
+            return binarySearch(arr, mid+1, r, x,ctx,ll,linf);
         }
 
         // We reach here when element is not present
@@ -110,6 +120,7 @@ public class BinarySearch extends Fragment {
         final TextView statusText = v.findViewById(R.id.statusTextBS);
         //output = (EditText) v.findViewById(R.id.editText2UC);
         search = (Button) v.findViewById(R.id.binarySearchButton);
+
         search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -125,7 +136,13 @@ public class BinarySearch extends Fragment {
                     inputInt[i] = Integer.parseInt(inputStr[i]);
                 }
                 Arrays.sort(inputInt);
-                binarySearch(inputInt,0,inputInt.length,searchElement, getActivity(),linearLayout);
+                generateDivider(linearLayout,getLayoutInflater());
+                binarySearch(inputInt,0,inputInt.length,searchElement, getActivity(),linearLayout,getLayoutInflater());
+                TextView tv = new TextView(getActivity());
+                generateDivider(linearLayout,getLayoutInflater());
+                tv.setText("Maximum possible iterations in submitted array = Log N (base 2) which is "+(int)(Math.log(inputInt.length)/Math.log(2)));
+                tv.setTextAppearance(getActivity(), R.style.BinarySearchMetaInfoOutputView);
+                linearLayout.addView(tv);
                 InputMethodManager imm = (InputMethodManager)getActivity().getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(mainLayout.getWindowToken(), 0);
             }
