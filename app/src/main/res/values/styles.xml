@@ -25,19 +25,72 @@
         <item name="android:windowBackground">@drawable/background</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     </style>
+    <style name="CardForTut">
+        <item name="android:background">@drawable/rounded_corner</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:colorBackground">#ffffff</item>
+        <item name="android:padding">20dp</item>
+
+    </style>
+    <style name="CardTutImage">
+        <item name="android:background">@drawable/rounded_corner</item>
+        <item name="android:layout_margin">5dp</item>
+        <item name="android:colorBackground">#ffffff</item>
+        <item name="android:padding">20dp</item>
+    </style>
+    <style name="CardForTutProp">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:padding">20dp</item>
+        <item name="android:background">@drawable/rounded_corner</item>
+        <item name="android:layout_marginLeft">5dp</item>
+        <item name="android:layout_marginRight">5dp</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:layout_marginBottom">2dp</item>
+        <item name="android:colorBackground">#ffffff</item>
+    </style>
     <style name="TutHeadingText" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:layout_gravity">center</item>
+
+    </style>
+    <style name="TutPropsNumbering" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">45sp</item>
+
+        <item name="android:fontFamily">sans-serif-thin</item>
+        <item name="android:layout_gravity">center</item>
+
+    </style>
+    <style name="TutDef" parent="@android:style/TextAppearance.Small">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textColor">@android:color/white</item>
         <item name="android:textSize">20sp</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:layout_gravity">center</item>
+
+    </style>
+    <style name="TutProps" parent="@android:style/TextAppearance.Small">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:fontFamily">sans-serif-light</item>
+        <item name="android:layout_gravity">center</item>
+
     </style>
     <style name="TutHeading2Text" parent="@android:style/TextAppearance.Small">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">@android:color/black</item>
-        <item name="android:textSize">15sp</item>
-        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
     </style>
     <style name="TutDescText" parent="@android:style/TextAppearance.Small">
         <item name="android:layout_width">wrap_content</item>
@@ -50,10 +103,9 @@
     <style name="CodeView" parent="@android:style/TextAppearance.Small">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
-        <item name="android:textColor">#808000</item>
+        <item name="android:textColor">@color/black_overlay</item>
         <item name="android:textSize">15sp</item>
         <item name="android:textStyle">italic</item>
-        <item name="android:background">#F0E68C</item>
     </style>
     <style name="BinarySearchDynamicOutputView" parent="@android:style/TextAppearance.Small">
         <item name="android:layout_width">wrap_content</item>

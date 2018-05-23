@@ -1,32 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView android:layout_height="wrap_content"
-    android:layout_width="wrap_content"
+    android:layout_width="match_parent"
+    android:background="#fcfcfc"
     xmlns:android="http://schemas.android.com/apk/res/android">
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/btll"
+    android:background="#fcfcfc"
     android:orientation="vertical"
-    android:padding="10dp">
-    <TextView
-        android:id="@+id/titleText1bt"
-        android:layout_width="wrap_content"
+    android:padding="5dp">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/TutHeadingText"/>
-    <TextView
-        android:id="@+id/titleText2bt"
-        android:layout_width="wrap_content"
+        style="@style/CardForTut"
+        android:background="@drawable/rounded_corner_orange">
+        <TextView
+            android:id="@+id/titleText1bt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            style="@style/TutHeadingText"
+            android:textColor="@color/white"/>
+        <View
+            android:layout_marginTop="15dp"
+            android:layout_marginBottom="15dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/white"/>
+        <TextView
+            android:id="@+id/titleDefbt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TutDef"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_marginTop="-2dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/TutHeading2Text"/>
-    <TextView
-        android:id="@+id/descText1bt"
-        android:layout_width="wrap_content"
+        style="@style/CardForTutProp"
+        android:background="@drawable/rounded_corner_blue">
+        <TextView
+            android:text="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TutPropsNumbering"
+            android:textColor="@color/white" />
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_height="match_parent"
+            android:layout_width="1dp"
+            android:background="@color/white"/>
+        <TextView
+            android:id="@+id/propBST1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TutProps"
+            android:textColor="@color/white" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/TutDescText"/>
+        style="@style/CardForTutProp"
+        android:background="@drawable/rounded_corner_blue">
+        <TextView
+            android:text="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TutPropsNumbering"
+            android:textColor="@color/white" />
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_height="match_parent"
+            android:layout_width="1dp"
+            android:background="@color/white"/>
+        <TextView
+            android:id="@+id/propBST2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TutProps"
+            android:textColor="@color/white" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/CardForTutProp"
+        android:background="@drawable/rounded_corner_blue">
+        <TextView
+            android:text="3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TutPropsNumbering"
+            android:textColor="@color/white" />
+        <View
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:layout_height="match_parent"
+            android:layout_width="1dp"
+            android:background="@color/white"/>
+        <TextView
+            android:id="@+id/propBST3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TutProps"
+            android:textColor="@color/white" />
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/CardForTut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_corner"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bst" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/CardForTut"
+        android:background="@drawable/rounded_corner_blue_gray">
+        <TextView
+            android:id="@+id/thisIsCodeBS1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TutHeading2Text"
+            android:textColor="@color/white"/>
+    </LinearLayout>
     <ScrollView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        style="@style/CardForTut"
+        android:background="@drawable/rounded_corner_light_orange">
     <HorizontalScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -37,20 +151,47 @@
             style="@style/CodeView"/>
     </HorizontalScrollView>
     </ScrollView>
-    <TextView
-        android:id="@+id/titleText3bt"
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/CardForTut"
+        android:background="@drawable/rounded_corner_blue_gray">
+        <TextView
+            android:id="@+id/thisIsCodeBS2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TutHeading2Text"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+    <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        style="@style/TutHeadingText"/>
-    <TextView
-        android:id="@+id/titleText4bt"
-        android:layout_width="wrap_content"
+        style="@style/CardForTut"
+        android:background="@drawable/rounded_corner_light_orange">
+        <HorizontalScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/codeText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/CodeView"/>
+        </HorizontalScrollView>
+    </ScrollView>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/TutHeading2Text"/>
-    <TextView
-        android:id="@+id/descText2bt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/TutDescText"/>
+        style="@style/CardForTut"
+        android:background="@drawable/rounded_corner_dark_gray">
+        <TextView
+            android:id="@+id/endTextBST"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            style="@style/TutHeadingText"
+            android:text="That's enough learning!"
+            android:textColor="@color/white"/>
+    </LinearLayout>
 </LinearLayout>
 </ScrollView>
