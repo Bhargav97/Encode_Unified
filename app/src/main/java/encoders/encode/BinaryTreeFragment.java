@@ -18,16 +18,30 @@ public class BinaryTreeFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         MainActivity.partialSearch();
+        MainActivity.toggleTutIcon(getActivity(),true);
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onResume() {
+        MainActivity.toggleTutIcon(getActivity(),true);
+        super.onResume();
+    }
+
+    @Override
+    public void onStop() {
+        MainActivity.toggleTutIcon(getActivity(),false);
+        super.onStop();
     }
 
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.binary_tree_layout,container,false);
-        ((MainActivity)getActivity()).setActionBarTitle("Binary Tree");
+        ((MainActivity)getActivity()).setActionBarTitle("Binary Search Tree");
         ((MainActivity)getActivity()).setNavItem(R.id.navds);
         ListView listView = (ListView) v.findViewById(R.id.dsbt_lv);
+
         ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity().getBaseContext(), android.R.layout.simple_expandable_list_item_1,options);
         listView.setAdapter(arrayAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){

@@ -1,5 +1,7 @@
 package encoders.encode;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.support.annotation.NonNull;
@@ -45,6 +47,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     static ActionBar actionBar;
     static boolean isMajor;
     static Toolbar toolbar;
+    public static boolean hideIcon;
     public static void setMajor(){ isMajor=true; }
     public static void unsetMajor(){ isMajor=false; }
     static Window w;
@@ -104,13 +107,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         w.clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
     }
+
+    public void takeToAppropriateTutFragment(){
+        String actionBarTitle = getSupportActionBar().getTitle().toString();
+        switch (actionBarTitle){
+            case "Binary Search Tree": case "Breadth-First Traversal": case "Depth-First Traversal":
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new BTtut()).addToBackStack(null).commit();
+                break;
+        }
+
+    }
+
+    public static void toggleTutIcon(Activity activity, boolean state){
+        if(state!=hideIcon){
+
+        }
+        else {
+            hideIcon = !state;
+            activity.invalidateOptionsMenu();
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        hideIcon=true;
+        invalidateOptionsMenu();
         toolbar.setTitleTextColor(Color.parseColor("#FFFFFF"));
         drawer = findViewById(R.id.drawer_layout);
         //searchListView = findViewById(R.id.searchListView);
@@ -174,23 +199,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             }
         });
-        /*searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
 
-            @Override
-            public boolean onQueryTextChange(String newText) {
-                return false;
-            }
-        });
-        //Search List View
-
-
-        ArrayAdapter adapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,searchSource);
-        searchListView.setAdapter(adapter);
-*/
         //Set listeners to clicks on nav menu items
 
         navigationView = findViewById(R.id.nav_view);
@@ -326,8 +335,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_item, menu);
+        if (hideIcon){
+            menu.findItem(R.id.action_tut).setVisible(false);
+        }else{
+            menu.findItem(R.id.action_tut).setVisible(true);
+        }
         final MenuItem searchActionItem = menu.findItem( R.id.action_search);
-
+        final MenuItem tutActionItem = menu.findItem( R.id.action_tut);
         searchActionItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
             @Override
             public boolean onMenuItemActionExpand(MenuItem item) {
@@ -342,19 +356,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        //searchView = (SearchView) searchActionItem.getActionView();
         searchView.setMenuItem(searchActionItem);
-        /*searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
-            @Override
-            public boolean onQueryTextSubmit(String query) {
-                return false;
-            }
-            @Override
-            public boolean onQueryTextChange(String s) {
-
-            }
-        });*/
-        //searchView.on
 
         searchView.setOnQueryTextListener(new MaterialSearchView.OnQueryTextListener() {
             @Override
@@ -384,8 +386,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     searchListView.setVisibility(View.GONE);
             }
         });
+
+        //tutActionItem.setOnActionExpandListener()
+
         return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        //handle onclick of actionbar items
+        switch (item.getItemId()){
+            case R.id.action_tut:
+                takeToAppropriateTutFragment();
+                break;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public void onClick(View v){
         switch(v.getId()){
             case R.id.refcardId:

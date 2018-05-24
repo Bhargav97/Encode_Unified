@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DSFragment extends Fragment {
-    static String options[] = {"Binary Tree", "Directed/Undirected Graph", "DAG"};
+    static String options[] = {"Binary Tree", "Directed/Undirected Graph"};
     RecyclerView recyclerView;
     RVAdapter rvAdapter;
 

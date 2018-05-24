@@ -25,10 +25,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RefFragment extends Fragment {
-
-    static String options[] = {"Binary Tree", "Quick Sort"};
+                                                                                            //4,8,11,13
+    static String options[] = {"Data Structures","Binary Search Tree", "Graphs","Algorithms","Sorting Algos","Quick Sort","Merge Sort","Bubble Sort", "Search Algorithms","Binary Search","Fibonacci Search","Greedy Algos","Dijkstra's Shortest Path","Dynamic Programming Algos","Knapsack Problem","Assembly Line Scheduling"};
     RecyclerView recyclerView;
-    RVAdapter rvAdapter;
+    RVwithSectionAdapter rvAdapter;
 
     //Hide the main activity Toolbar to set our collapsableToolbar
     @Override
@@ -76,7 +76,7 @@ public class RefFragment extends Fragment {
         recyclerView = (RecyclerView) v.findViewById(R.id.ref_rlv);
 
         LinearLayoutManager llm = new LinearLayoutManager(recyclerView.getContext());
-        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
+       DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(),
                 llm.getOrientation());
         recyclerView.addItemDecoration(dividerItemDecoration);
 
@@ -88,69 +88,23 @@ public class RefFragment extends Fragment {
             @Override
             public void onClick(View view, int position) {
                 String selectedItem = (String) rvAdapter.data.get(position).title;
-                if(selectedItem.equals("Binary Tree")){
+                if(selectedItem.equals("Data Structures")){
+                    //do nothing, its just a header
+                }
+                else if(selectedItem.equals("Binary Search Tree")){
                     getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new BTtut()).addToBackStack(null).commit();
                 }
                 else if(selectedItem.equals("Quick Sort")){
                     getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new UnicodeFragment()).addToBackStack(null).commit();
                 }
                 else {
-                    getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new NumberSystemFragment()).addToBackStack(null).commit();
+                  //  getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new NumberSystemFragment()).addToBackStack(null).commit();
 
                 }
             }
         } ;
-        rvAdapter = new RVAdapter(getActivity(),getData(),listener);
+        rvAdapter = new RVwithSectionAdapter(getActivity(),getData(),listener);
         recyclerView.setAdapter(rvAdapter);
-           // Toast.makeText(getContext(), "Position " + position, Toast.LENGTH_SHORT).show();
-
-
-        // recyclerView.setHasFixedSize(true);
-        /*recyclerView.addOnItemTouchListener(new RecyclerView.OnItemTouchListener() {
-            @Override
-            public boolean onInterceptTouchEvent(RecyclerView rv, MotionEvent e) {
-                int action = e.getAction();
-                switch (action) {
-                    case MotionEvent.ACTION_MOVE:
-                        rv.getParent().requestDisallowInterceptTouchEvent(true);
-                        break;
-                }
-                return false;
-            }
-
-            @Override
-            public void onTouchEvent(RecyclerView rv, MotionEvent e) {
-
-            }
-
-            @Override
-            public void onRequestDisallowInterceptTouchEvent(boolean disallowIntercept) {
-
-            }
-        });*/
-        /*ArrayAdapter arrayAdapter = new ArrayAdapter(getActivity().getBaseContext(), android.R.layout.simple_list_item_1,options);
-        listView.setAdapter(arrayAdapter);
-        ListViewUtility.setListViewHeightBasedOnChildren(listView);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-            @Override
-            public void onItemClick(AdapterView<?> parent,View v, int position, long id){
-                String selectedItem = (String) parent.getItemAtPosition(position);
-
-                if(selectedItem.equals("ASCII")){
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new AsciiFragment()).addToBackStack(null).commit();
-                }
-                else if(selectedItem.equals("Unicode")){
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new UnicodeFragment()).addToBackStack(null).commit();
-                }
-                else {
-                    getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new NumberSystemFragment()).addToBackStack(null).commit();
-
-                }
-                /*Intent intent = new Intent(Activity.this,destinationActivity.class);
-                //based on item add info to intent
-                startActivity(intent);
-            }
-        }); */
         return v;
     }
 }

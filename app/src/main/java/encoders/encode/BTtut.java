@@ -18,6 +18,13 @@ public class BTtut extends Fragment {
         MainActivity.partialSearch();
         super.onCreate(savedInstanceState);
     }
+
+    @Override
+    public void onStop() {
+        ((MainActivity)getActivity()).getSupportActionBar().show();
+        super.onStop();
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

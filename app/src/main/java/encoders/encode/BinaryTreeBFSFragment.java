@@ -32,8 +32,19 @@ public class BinaryTreeBFSFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         MainActivity.partialSearch();
+        MainActivity.toggleTutIcon(getActivity(),true);
         super.onCreate(savedInstanceState);
     }
+    @Override
+    public void onResume() {
+        MainActivity.toggleTutIcon(getActivity(),true);
+        super.onResume();
+    }
+    public void onStop() {
+        MainActivity.toggleTutIcon(getActivity(),false);
+        super.onStop();
+    }
+
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
 
         View v = inflater.inflate(R.layout.binary_tree_bfs_layout,container,false);

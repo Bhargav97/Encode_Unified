@@ -7,4 +7,13 @@
         android:title="Search..."
         app:showAsAction="always|collapseActionView"
         android:icon="@drawable/ic_search"/>
+
+    <item
+        android:id="@+id/action_tut"
+        android:orderInCategory="100"
+        android:title="Tutorial"
+        app:showAsAction="always|collapseActionView"
+        android:icon="@drawable/ic_tut"/>
+
+
 </menu>
