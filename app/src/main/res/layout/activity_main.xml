@@ -5,6 +5,7 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#fafafa"
     android:fitsSystemWindows="true"
     tools:context="encoders.encode.MainActivity"
     tools:openDrawer="start">
@@ -65,7 +66,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:layout_marginTop="20dp"
-            android:background="#fcfcfc"
+            android:background="#fafafa"
             android:textColor="@color/grey"
             android:textSize="45sp"
             android:text="Welcome!"/>
@@ -76,7 +77,6 @@
             android:id="@+id/homell"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#fcfcfc"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="10dp"

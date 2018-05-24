@@ -49,10 +49,6 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
-            <View
-                android:layout_height="5dp"
-                android:layout_width="match_parent"
-                android:background="@drawable/shadow_hack" />
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/ref_rlv"
                 android:layout_width="match_parent"

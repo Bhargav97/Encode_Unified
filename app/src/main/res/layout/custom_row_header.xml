@@ -13,7 +13,7 @@
             android:layout_gravity="center"
         android:gravity="center"
 
-            style="@style/TutHeadingText"
+            style="@style/TutProps"
             android:textSize="30sp"
             android:background="@color/blue"/>
 </LinearLayout>

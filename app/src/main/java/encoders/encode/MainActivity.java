@@ -309,6 +309,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
                     showSearch();
                     getSupportActionBar().show();
+                    setNavItem(R.id.navhome);
                     setTitleToHome();
                    // Toast.makeText(this,"Clearing shit",Toast.LENGTH_LONG).show();
         }
