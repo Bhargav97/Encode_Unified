@@ -19,19 +19,8 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.view.KeyEvent;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.view.*;
+import android.widget.*;
 
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
@@ -47,6 +36,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     static ActionBar actionBar;
     static boolean isMajor;
     static Toolbar toolbar;
+    float scale;
+    int pixels,pixels2;
     public static boolean hideIcon;
     public static void setMajor(){ isMajor=true; }
     public static void unsetMajor(){ isMajor=false; }
@@ -229,6 +220,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         dsCard.setOnClickListener(this);
         algoCard.setOnClickListener(this);
         fbCard.setOnClickListener(this);
+
+        //FOR FANCY SEARCH
+        scale = getResources().getDisplayMetrics().density;
+        pixels = (int) (10 * scale + 0.5f);
+       // pixels2 = (int) (56 * scale + 0.5f);
+
        /* Window w =getWindow();
         w.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);*/
     }
@@ -317,6 +314,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             searchListView.setVisibility(View.GONE);
             searchView.closeSearch();
         }
+        //when coming back to home from any fragment we reached thru search
+        else if(mFragmentManager.getBackStackEntryCount() == 1){
+            showSearch();
+            getSupportActionBar().show();
+            setNavItem(R.id.navhome);
+            setTitleToHome();
+            MainActivity.toggleTutIcon(this,false);
+
+        }
+
         else if(searchView.isSearchOpen()){
             searchView.closeSearch();
         }
@@ -352,7 +359,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public boolean onMenuItemActionCollapse(MenuItem item) {
-
+                Toolbar.LayoutParams temp_layout = new Toolbar.LayoutParams(
+                        ViewGroup.LayoutParams.MATCH_PARENT, pixels2);
+                toolbar.setLayoutParams(temp_layout);
                 return true;
             }
         });
@@ -379,10 +388,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                /*if (searchListView.getVisibility() == View.GONE)
                     searchListView.setVisibility(View.VISIBLE);*/
               //  Toast.makeText(getApplicationContext(),"Works",Toast.LENGTH_LONG).show();*/
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) toolbar.getLayoutParams();
+                layoutParams.height+=pixels;
+                toolbar.setLayoutParams(layoutParams);
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) searchView.getLayoutParams();
+                layoutParams2.height+=pixels;
+                searchView.setLayoutParams(layoutParams2);
+                searchView.setElevation(10);
+                View v = findViewById(R.id.backdrop);
+                v.setVisibility(View.VISIBLE);
+
+                //Toast.makeText(getApplicationContext(), "Yes i am called", Toast.LENGTH_LONG).show();
             }
 
             @Override
             public void onSearchViewClosed() {
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) toolbar.getLayoutParams();
+                layoutParams.height-=pixels;
+                toolbar.setLayoutParams(layoutParams);
+                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) searchView.getLayoutParams();
+                layoutParams2.height-=pixels;
+                searchView.setLayoutParams(layoutParams2);
+                View v = findViewById(R.id.backdrop);
+
+                v.setVisibility(View.GONE);
                 if (searchListView.getVisibility() == View.VISIBLE)
                     searchListView.setVisibility(View.GONE);
             }

@@ -10,12 +10,14 @@
     tools:context="encoders.encode.MainActivity"
     tools:openDrawer="start">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
         <RelativeLayout
+            android:elevation="2dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/shadow_bg">
@@ -31,7 +33,11 @@
 
             <com.miguelcatalan.materialsearchview.MaterialSearchView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="46dp"
+                android:foregroundGravity="center"
+                android:layout_marginTop="5dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
                 android:id="@+id/search_view"
                 app:searchBackground="@color/white"
                 app:searchSuggestionBackground="@color/colorPrimary"
@@ -52,7 +58,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 ></ListView>
+
         </RelativeLayout>
+        <View
+            android:id="@+id/backdrop"
+            android:background="#AA000000"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"/>
         <View
             android:id="@+id/shadowswag"
             android:layout_height="0dp"
