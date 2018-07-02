@@ -16,12 +16,13 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AlgoFragment extends Fragment {
-    static String options[] = {"Search Algos", "Greedy Algos", "Dynamic Programming Algos"};
+    static String options[] = {"Search Algos", "Greedy Algos", "Dynamic Programming Algos", "Sorting"};
     RecyclerView recyclerView;
     RVAdapter rvAdapter;
 
@@ -80,14 +81,13 @@ public class AlgoFragment extends Fragment {
                 String selectedItem = (String) rvAdapter.data.get(position).title;
                 if(selectedItem.equals("Search Algos")){
                     getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new SearchesFragment()).addToBackStack(null).commit();
-
                 }
                 else if(selectedItem.equals("Greedy Algos")){
                     getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new GreedyFragment()).addToBackStack(null).commit();
-
                 }
                 else {
-
+                    Toast.makeText(getActivity(), "WIP",
+                            Toast.LENGTH_LONG).show();
                 }
             }
         } ;

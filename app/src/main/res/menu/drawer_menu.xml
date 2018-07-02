@@ -35,6 +35,10 @@
                 android:id="@+id/navsettings"
                 android:icon="@drawable/ic_settings"
                 android:title="Settings"/>
+            <item
+                android:id="@+id/navabout"
+                android:icon="@drawable/ic_settings"
+                android:title="About"/>
         </menu>
     </item>
 </menu>

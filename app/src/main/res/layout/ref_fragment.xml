@@ -24,7 +24,7 @@
                 android:id="@+id/img"
                 android:layout_width="match_parent"
                 android:layout_height="324dp"
-
+                android:scaleType="centerCrop"
                 android:src="@drawable/purple"
                 app:layout_collapseMode="parallax"
                 app:layout_collapseParallaxMultiplier="0.7"

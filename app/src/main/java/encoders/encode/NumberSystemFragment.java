@@ -33,8 +33,22 @@ public class NumberSystemFragment extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         MainActivity.partialSearch();
+        MainActivity.toggleTutIcon(getActivity(),true);
         super.onCreate(savedInstanceState);
     }
+
+    @Override
+    public void onResume() {
+        MainActivity.toggleTutIcon(getActivity(),true);
+        super.onResume();
+    }
+
+    @Override
+    public void onStop() {
+        MainActivity.toggleTutIcon(getActivity(),false);
+        super.onStop();
+    }
+
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState){
         View v = inflater.inflate(R.layout.number_system_layout,container,false);
         ((MainActivity)getActivity()).setActionBarTitle("Number Systems");

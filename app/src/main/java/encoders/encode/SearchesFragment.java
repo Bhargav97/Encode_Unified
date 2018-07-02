@@ -12,13 +12,27 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class SearchesFragment extends Fragment {
-    String options[] = {"Binary Search", "Perform DFS"};
+    String options[] = {"Binary Search"};
     //To enable searchView on non-Major fragments
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         MainActivity.partialSearch();
+        MainActivity.toggleTutIcon(getActivity(),true);
         super.onCreate(savedInstanceState);
     }
+
+    @Override
+    public void onResume() {
+        MainActivity.toggleTutIcon(getActivity(),true);
+        super.onResume();
+    }
+
+    @Override
+    public void onStop() {
+        MainActivity.toggleTutIcon(getActivity(),false);
+        super.onStop();
+    }
+
 
     @Nullable
     @Override
@@ -37,9 +51,7 @@ public class SearchesFragment extends Fragment {
                 if(selectedItem.equals("Binary Search")){
                     getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new BinarySearch()).addToBackStack(null).commit();
                 }
-                else if(selectedItem.equals("Perform BFS")){
-                    getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new BinaryTreeBFSFragment()).addToBackStack(null).commit();
-                }
+
 
                 /*Intent intent = new Intent(Activity.this,destinationActivity.class);
                 //based on item add info to intent

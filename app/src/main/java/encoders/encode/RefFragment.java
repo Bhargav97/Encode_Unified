@@ -94,8 +94,17 @@ public class RefFragment extends Fragment {
                 else if(selectedItem.equals("Binary Search Tree")){
                     getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new BTtut()).addToBackStack(null).commit();
                 }
-                else if(selectedItem.equals("Quick Sort")){
-                    getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new UnicodeFragment()).addToBackStack(null).commit();
+                else if(selectedItem.equals("Graphs")){
+                    getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new GTut()).addToBackStack(null).commit();
+                }
+                else if(selectedItem.equals("Bubble Sort")){
+                    getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new BubbleTut()).addToBackStack(null).commit();
+                }
+                else if(selectedItem.equals("Binary Search")){
+                    getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new BStut()).addToBackStack(null).commit();
+                }
+                else if(selectedItem.equals("Dijkstra's Shortest Path")){
+                    getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new Dijtut()).addToBackStack(null).commit();
                 }
                 else {
                   //  getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new NumberSystemFragment()).addToBackStack(null).commit();

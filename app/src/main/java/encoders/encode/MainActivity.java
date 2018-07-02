@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.support.annotation.NonNull;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.NavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
@@ -36,6 +37,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     static ActionBar actionBar;
     static boolean isMajor;
     static Toolbar toolbar;
+    DrawerLayout drawerLayout;
     float scale;
     int pixels,pixels2;
     public static boolean hideIcon;
@@ -105,6 +107,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case "Binary Search Tree": case "Breadth-First Traversal": case "Depth-First Traversal":
                 getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new BTtut()).addToBackStack(null).commit();
                 break;
+            case "Graph Algorithms": case "Graph DFS & BFS":
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new GTut()).addToBackStack(null).commit();
+                break;
+            case "Search Algorithms": case "Binary Search":
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new BStut()).addToBackStack(null).commit();
+                break;
+            case "Greedy Algorithms": case "Dijkstra's Shortest Path":
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new Dijtut()).addToBackStack(null).commit();
+                break;
+
         }
 
     }
@@ -123,6 +135,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        drawerLayout = findViewById(R.id.drawer_layout);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         hideIcon=true;
@@ -255,12 +268,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new ConversionFragment(),"CONV").addToBackStack(null).commit();
                 break;
             case R.id.navfeedback:
-                Toast.makeText(this, "What's the hurry dude!!",
+                Toast.makeText(this, "WIP",
                         Toast.LENGTH_LONG).show();
                 break;
             case R.id.navsettings:
-                Toast.makeText(this, "Really dude?",
+                Toast.makeText(this, "WIP",
                         Toast.LENGTH_LONG).show();
+                break;
+            case R.id.navabout:
+              /*  Snackbar snackbar = Snackbar
+                        .make(drawerLayout, "Developed by: Bhargav Bhatt & TIrth\n\n References: geeksforgeeks.org", Snackbar.LENGTH_LONG);
+                snackbar.show();*/
+                startActivity(new Intent(MainActivity.this, AboutActivity.class));
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);

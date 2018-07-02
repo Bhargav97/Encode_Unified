@@ -12,12 +12,25 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 public class GreedyFragment extends Fragment {
-    String options[] = {"Dijkstra's Shortest Path", "Hold on"};
+    String options[] = {"Dijkstra's Shortest Path"};
     //To enable searchView on non-Major fragments
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         MainActivity.partialSearch();
+        MainActivity.toggleTutIcon(getActivity(),true);
         super.onCreate(savedInstanceState);
+    }
+
+    @Override
+    public void onResume() {
+        MainActivity.toggleTutIcon(getActivity(),true);
+        super.onResume();
+    }
+
+    @Override
+    public void onStop() {
+        MainActivity.toggleTutIcon(getActivity(),false);
+        super.onStop();
     }
 
     @Nullable

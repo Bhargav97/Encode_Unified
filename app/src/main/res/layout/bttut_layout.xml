@@ -137,7 +137,7 @@
             android:textColor="@color/white"/>
     </LinearLayout>
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/CardForTut"
         android:background="@drawable/rounded_corner_light_orange">
@@ -165,7 +165,7 @@
             android:textColor="@color/white"/>
     </LinearLayout>
     <ScrollView
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/CardForTut"
         android:background="@drawable/rounded_corner_light_orange">

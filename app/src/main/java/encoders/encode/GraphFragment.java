@@ -22,13 +22,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GraphFragment extends Fragment {
-    String options[] = {"Perform BFS or DFS", "Placeholder"};
+    String options[] = {"Perform BFS or DFS"};
     //To enable searchView on non-Major fragments
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         MainActivity.partialSearch();
+        MainActivity.toggleTutIcon(getActivity(),true);
         super.onCreate(savedInstanceState);
     }
+
+    @Override
+    public void onResume() {
+        MainActivity.toggleTutIcon(getActivity(),true);
+        super.onResume();
+    }
+
+    @Override
+    public void onStop() {
+        MainActivity.toggleTutIcon(getActivity(),false);
+        super.onStop();
+    }
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -45,9 +59,6 @@ public class GraphFragment extends Fragment {
 
                 if(selectedItem.equals("Perform BFS or DFS")){
                     getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new GraphDFSFragment()).addToBackStack(null).commit();
-                }
-                else if(selectedItem.equals("Placeholder")){
-                    getActivity().getSupportFragmentManager().beginTransaction().setCustomAnimations(android.R.anim.fade_in, android.R.anim.fade_out,android.R.anim.fade_in, android.R.anim.fade_out).replace(R.id.fragment_container,new BinaryTreeBFSFragment()).addToBackStack(null).commit();
                 }
 
                 /*Intent intent = new Intent(Activity.this,destinationActivity.class);

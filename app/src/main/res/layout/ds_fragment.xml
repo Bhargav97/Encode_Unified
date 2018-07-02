@@ -33,6 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="324dp"
                 android:src="@drawable/pink"
+                android:scaleType="centerCrop"
                 app:layout_collapseMode="parallax"
                 app:layout_collapseParallaxMultiplier="0.7"
                 />
